@@ -4,6 +4,12 @@
 
 Um sistema desktop de gerenciamento de estoque desenvolvido em **C# com Windows Forms**, utilizando **Dapper** como ORM leve e **SQL Server** como banco de dados.
 
+---
+
+![Interface do Sistema](img/print-interface.png)
+
+---
+
 ## 📦 Funcionalidades
 - Cadastro e listagem de produtos
 - Gerenciamento de entradas e saídas de estoque
