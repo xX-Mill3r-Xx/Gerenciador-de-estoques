@@ -15,8 +15,10 @@ namespace EstoqueManager
 
         private System.Timers.Timer _timer;
         private bool _modoInsercaoAtivo = false;
+        private bool _enterPressionado = false;
         ProdutoController _produtoController;
         CategoriaController _categoriaController;
+        private Produto _produtoEditado;
 
         #endregion
 
@@ -185,6 +187,12 @@ namespace EstoqueManager
 
         private async void dgvRegistros_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter && dgvRegistros.IsCurrentCellInEditMode)
+            {
+                e.SuppressKeyPress = true;
+                dgvRegistros.EndEdit();
+            }
+
             if (e.KeyCode == Keys.Delete && dgvRegistros.SelectedRows.Count > 0)
             {
                 var produto = dgvRegistros.SelectedRows[0].DataBoundItem as Produto;
@@ -215,6 +223,27 @@ namespace EstoqueManager
             cbCategoria.SelectedIndex = -1;
 
             txtProdutos.Focus();
+        }
+
+        private async void dgvRegistros_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                _produtoEditado = dgvRegistros.Rows[e.RowIndex].DataBoundItem as Produto;
+
+                if (_produtoEditado != null)
+                {
+                    var resultado = await _produtoController.AtualizarProduto(_produtoEditado);
+                    if (resultado != null)
+                    {
+                        MessageBox.Show("Produto atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao atualizar produto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

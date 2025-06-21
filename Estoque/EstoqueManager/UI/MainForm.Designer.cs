@@ -245,6 +245,7 @@
             this.dgvRegistros.Size = new System.Drawing.Size(683, 534);
             this.dgvRegistros.TabIndex = 0;
             this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
+            this.dgvRegistros.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellEndEdit);
             this.dgvRegistros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRegistros_KeyDown);
             // 
             // btnClose
