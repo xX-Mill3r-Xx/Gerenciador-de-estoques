@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Scripts\01\CriacaoInicial.txt" />
+    <None Include="Resources\lixeira.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

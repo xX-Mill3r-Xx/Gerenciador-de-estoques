@@ -42,5 +42,15 @@ namespace EstoqueManager.Controller
         {
             await _produtoRepository.Inserir(produto);
         }
+
+        public async Task<Produto> AtualizarProduto(Produto produto)
+        {
+            return await _produtoRepository.Atualizar(produto);
+        }
+
+        public async Task<Produto> DeletarProduto(int id)
+        {
+            return await _produtoRepository.Deletar(id);
+        }
     }
 }

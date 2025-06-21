@@ -14,6 +14,7 @@ namespace EstoqueManager
         #region Properties
 
         private System.Timers.Timer _timer;
+        private bool _modoInsercaoAtivo = false;
         ProdutoController _produtoController;
         CategoriaController _categoriaController;
 
@@ -39,6 +40,7 @@ namespace EstoqueManager
         {
             try
             {
+                _modoInsercaoAtivo = false;
                 await SalvarProduto();
             }
             catch (Exception ex)
@@ -79,6 +81,7 @@ namespace EstoqueManager
             try
             {
                 await BuscarTodosProdutos();
+                AdicionarColunaExcluir();
             }
             catch (Exception ex)
             {
@@ -137,7 +140,81 @@ namespace EstoqueManager
 
         private void txtProdutos_TextChanged(object sender, EventArgs e)
         {
+            if (_modoInsercaoAtivo)
+                return;
             BuscaDinamica();
+        }
+
+        private void AdicionarColunaExcluir()
+        {
+            if (!dgvRegistros.Columns.Contains("Excluir"))
+            {
+                var colunaExcluir = new DataGridViewImageColumn();
+                colunaExcluir.Name = "Excluir";
+                colunaExcluir.HeaderText = "Excluir";
+                colunaExcluir.Width = 35;
+                colunaExcluir.Image = Properties.Resources.lixeira;
+                colunaExcluir.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                colunaExcluir.ToolTipText = "Excluir";
+
+                dgvRegistros.Columns.Add(colunaExcluir);
+            }
+        }
+
+        private async void dgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvRegistros.Columns["Excluir"].Index && e.RowIndex >= 0)
+            {
+                var produto = dgvRegistros.Rows[e.RowIndex].DataBoundItem as Produto;
+                if (produto != null) 
+                {
+                    var confirma = MessageBox.Show($"Deseja realmente excluir o produto \"{produto.Nome}\"?",
+                        "Confirmar?",MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (confirma == DialogResult.Yes)
+                    {
+                        var resultado = await _produtoController.DeletarProduto(produto.Id);
+                        if (resultado != null)
+                        {
+                            MessageBox.Show("Produto excluido com sucesso","Sucesso!",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            await BuscarTodosProdutos();
+                        }
+                    }
+                }
+            }
+        }
+
+        private async void dgvRegistros_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && dgvRegistros.SelectedRows.Count > 0)
+            {
+                var produto = dgvRegistros.SelectedRows[0].DataBoundItem as Produto;
+                if (produto != null)
+                {
+                    var confirma = MessageBox.Show($"Deseja realmente excluir o produto \"{produto.Nome}\"?",
+                        "Confirmar?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (confirma == DialogResult.Yes)
+                    {
+                        var resultado = await _produtoController.DeletarProduto(produto.Id);
+                        if (resultado != null)
+                        {
+                            MessageBox.Show("Produto excluido com sucesso", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            await BuscarTodosProdutos();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnNovoProduto_Click(object sender, EventArgs e)
+        {
+            _modoInsercaoAtivo = true;
+
+            txtProdutos.Clear();
+            txtQuantidade.Clear();
+            txtPreco.Clear();
+            cbCategoria.SelectedIndex = -1;
+
+            txtProdutos.Focus();
         }
     }
 }

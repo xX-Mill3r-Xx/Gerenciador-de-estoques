@@ -48,7 +48,7 @@ namespace EstoqueManager.Data.Repositories
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return Enumerable.Empty <Produto>();
+                return Enumerable.Empty<Produto>();
             }
         }
 
@@ -137,14 +137,60 @@ namespace EstoqueManager.Data.Repositories
             }
         }
 
-        public Task<Produto> Atualizar(Produto entity)
+        public async Task<Produto> Atualizar(Produto entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string sql = @"UPDATE Produtos
+                                SET Nome = @Nome,
+	                                Quantidade = @Quantidade,
+	                                Preco = @Preco,
+	                                CategoriaId = @CategoriaId
+                                WHERE Id = @Id";
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+                    int linhas = await connection.ExecuteAsync(sql, new
+                    {
+                        entity.Nome,
+                        entity.Quantidade,
+                        entity.CategoriaId,
+                        entity.Preco,
+                        entity.Id
+                    });
+
+                    if (linhas > 0)
+                        return entity;
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
-        public Task<Produto> Deletar(int id)
+        public async Task<Produto> Deletar(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var produto = await ObterPorId(id);
+                if (produto == null)
+                    return null;
+                string sql = @"DELETE FROM Produtos WHERE Id = @Id";
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+                    int linhas = await connection.ExecuteAsync(sql, new { Id = id });
+                    return linhas > 0 ? produto : null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
     }
 }
