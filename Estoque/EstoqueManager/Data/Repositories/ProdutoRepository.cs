@@ -52,14 +52,58 @@ namespace EstoqueManager.Data.Repositories
             }
         }
 
-        public Task<Produto> Atualizar(Produto entity)
+        public async Task<Produto> ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    string sql = @"SELECT 
+	                                    Id, 
+	                                    Nome, 
+	                                    Quantidade, 
+	                                    Preco, 
+	                                    CategoriaId 
+                                    FROM Produtos
+                                    WHERE Id = @Id";
+
+                    await connection.OpenAsync();
+                    var produto = await connection.QueryFirstOrDefaultAsync<Produto>(sql, new { Id = id });
+                    return produto;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
-        public Task<Produto> Deletar(int id)
+        public async Task<Produto> ObterPorNome(string nome)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    string sql = @"SELECT 
+	                                    Id, 
+	                                    Nome, 
+	                                    Quantidade, 
+	                                    Preco, 
+	                                    CategoriaId 
+                                    FROM Produtos
+                                    WHERE Nome LIKE @Nome";
+
+                    await connection.OpenAsync();
+                    var produto = await connection.QueryFirstOrDefaultAsync<Produto>(sql, new { Nome = nome });
+                    return produto;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
         public async Task<Produto> Inserir(Produto entity)
@@ -74,7 +118,8 @@ namespace EstoqueManager.Data.Repositories
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     await connection.OpenAsync();
-                    var idGerado = await connection.ExecuteScalarAsync<int>(sql, new {
+                    var idGerado = await connection.ExecuteScalarAsync<int>(sql, new
+                    {
                         entity.Nome,
                         entity.Quantidade,
                         entity.CategoriaId,
@@ -92,12 +137,12 @@ namespace EstoqueManager.Data.Repositories
             }
         }
 
-        public Task<Produto> ObterPorId(int id)
+        public Task<Produto> Atualizar(Produto entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Produto> ObterPorNome(string nome)
+        public Task<Produto> Deletar(int id)
         {
             throw new NotImplementedException();
         }

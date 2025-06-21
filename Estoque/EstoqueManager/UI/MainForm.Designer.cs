@@ -102,7 +102,7 @@
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.tlpTop.Controls.Add(this.btnClose, 5, 0);
             this.tlpTop.Controls.Add(this.lbTitulo, 1, 0);
             this.tlpTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -119,7 +119,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::EstoqueManager.Properties.Resources.close;
-            this.btnClose.Location = new System.Drawing.Point(843, 3);
+            this.btnClose.Location = new System.Drawing.Point(842, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(24, 27);
             this.btnClose.TabIndex = 0;
@@ -134,7 +134,7 @@
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
             this.lbTitulo.Location = new System.Drawing.Point(5, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(284, 34);
+            this.lbTitulo.Size = new System.Drawing.Size(283, 34);
             this.lbTitulo.TabIndex = 1;
             this.lbTitulo.Text = "Gerenciamento de estoque";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -378,6 +378,7 @@
             this.txtProdutos.Name = "txtProdutos";
             this.txtProdutos.Size = new System.Drawing.Size(338, 23);
             this.txtProdutos.TabIndex = 0;
+            this.txtProdutos.TextChanged += new System.EventHandler(this.txtProdutos_TextChanged);
             // 
             // pnDataGrid
             // 

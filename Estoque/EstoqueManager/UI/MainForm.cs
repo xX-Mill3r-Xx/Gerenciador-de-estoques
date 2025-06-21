@@ -2,6 +2,7 @@
 using EstoqueManager.Controller;
 using EstoqueManager.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace EstoqueManager
     {
         #region Properties
 
+        private System.Timers.Timer _timer;
         ProdutoController _produtoController;
         CategoriaController _categoriaController;
 
@@ -86,8 +88,56 @@ namespace EstoqueManager
 
         private async Task BuscarTodosProdutos()
         {
-            var produtos = await _produtoController.ObterProdutos();
-            dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, produtos.ToList());
+            await Buscar();
+        }
+
+        private async Task Buscar()
+        {
+            string termo = txtProdutos.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(termo))
+            {
+                var produtos = await _produtoController.ObterProdutos();
+                dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, produtos.ToList());
+            }
+            else if (int.TryParse(termo, out int id))
+            {
+                var produto = await _produtoController.ObterProdutosPorId(id);
+                if (produto != null)
+                    dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, new List<Produto> { produto });
+                else
+                    MessageBox.Show("Produto não encontrado pelo ID informado","Atenção",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var produto = await _produtoController.ObterProdutosPorNome($"%{termo}%");
+                if (produto != null)
+                    dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, new List<Produto> { produto });
+                else
+                    MessageBox.Show("Produto com este nome não foi encontrado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void BuscaDinamica()
+        {
+            if (_timer != null)
+                _timer.Stop();
+            _timer = new System.Timers.Timer(500);
+            _timer.Elapsed += (s, args) =>
+            {
+                _timer.Stop();
+                this.Invoke(new Action(async () =>
+                {
+                    await Buscar();
+                }));
+            };
+
+            _timer.Start();
+        }
+
+        private void txtProdutos_TextChanged(object sender, EventArgs e)
+        {
+            BuscaDinamica();
         }
     }
 }
