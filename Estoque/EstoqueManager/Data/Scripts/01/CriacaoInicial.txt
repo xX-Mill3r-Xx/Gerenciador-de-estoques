@@ -1,0 +1,35 @@
+﻿--CREATE DATABASE ESTOQUE
+--GO
+
+--USE ESTOQUE
+--GO
+
+CREATE TABLE Categorias (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Produtos (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Nome VARCHAR(100) NOT NULL,
+    Quantidade INT NOT NULL,
+    Preco DECIMAL(10, 2) NOT NULL,
+    CategoriaId INT,
+    FOREIGN KEY (CategoriaId) REFERENCES Categorias(Id)
+);
+
+CREATE TABLE Movimentacoes (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    ProdutoId INT NOT NULL,
+    Tipo CHAR(1) NOT NULL, -- 'E' para Entrada, 'S' para Saída
+    Quantidade INT NOT NULL,
+    DataMovimento DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (ProdutoId) REFERENCES Produtos(Id)
+);
+
+CREATE TABLE Usuarios (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Nome VARCHAR(100) NOT NULL,
+    Login VARCHAR(50) UNIQUE NOT NULL,
+    SenhaHash VARCHAR(256) NOT NULL
+);
