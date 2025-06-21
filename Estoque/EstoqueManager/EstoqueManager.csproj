@@ -58,6 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuracoes\ConfiguracoesComboBox.cs" />
+    <Compile Include="Configuracoes\ConfiguracoesDataGridView.cs" />
     <Compile Include="Controller\CategoriaController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Data\DataBaseConnection.cs" />
@@ -67,7 +69,9 @@
     <Compile Include="Data\Services\IProdutoRepository.cs" />
     <Compile Include="Data\StringConnection.cs" />
     <Compile Include="Models\Categorias.cs" />
+    <Compile Include="Models\Movimentacoes.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Usuarios.cs" />
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

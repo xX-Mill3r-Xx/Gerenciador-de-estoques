@@ -1,4 +1,5 @@
-﻿using EstoqueManager.Controller;
+﻿using EstoqueManager.Configuracoes;
+using EstoqueManager.Controller;
 using EstoqueManager.Models;
 using System;
 using System.Linq;
@@ -9,8 +10,14 @@ namespace EstoqueManager
 {
     public partial class MainForm : Form
     {
+        #region Properties
+
         ProdutoController _produtoController;
         CategoriaController _categoriaController;
+
+        #endregion
+
+        #region Constructors
 
         public MainForm()
         {
@@ -18,6 +25,8 @@ namespace EstoqueManager
             _produtoController = new ProdutoController();
             _categoriaController = new CategoriaController();
         }
+
+        #endregion
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -30,9 +39,9 @@ namespace EstoqueManager
             {
                 await SalvarProduto();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao inserir um produto", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao inserir um produto: {ex.Message}", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -60,10 +69,25 @@ namespace EstoqueManager
         private async void MainForm_Load(object sender, EventArgs e)
         {
             var categorias = await _categoriaController.ObterCategorias();
+            cbCategoria = ConfiguracoesComboBox.ConfiguracoesComboboxCategoria(cbCategoria, categorias.ToList());
+        }
 
-            cbCategoria.DataSource = categorias.ToList();
-            cbCategoria.DisplayMember = "Nome";
-            cbCategoria.ValueMember = "Id";
+        private async void btnProcurar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await BuscarTodosProdutos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao buscar os produtos: {ex.Message}", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task BuscarTodosProdutos()
+        {
+            var produtos = await _produtoController.ObterProdutos();
+            dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, produtos.ToList());
         }
     }
 }

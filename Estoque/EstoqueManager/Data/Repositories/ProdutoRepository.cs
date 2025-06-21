@@ -4,6 +4,7 @@ using EstoqueManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,6 +26,31 @@ namespace EstoqueManager.Data.Repositories
         }
 
         #endregion Constructors
+
+        public async Task<IEnumerable<Produto>> ObterTodos()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    string sql = @"SELECT 
+	                                    Id, 
+	                                    Nome, 
+	                                    Quantidade, 
+	                                    Preco, 
+	                                    CategoriaId 
+                                    FROM Produtos";
+                    await connection.OpenAsync();
+                    var produtos = await connection.QueryAsync<Produto>(sql);
+                    return produtos;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return Enumerable.Empty <Produto>();
+            }
+        }
 
         public Task<Produto> Atualizar(Produto entity)
         {
@@ -72,11 +98,6 @@ namespace EstoqueManager.Data.Repositories
         }
 
         public Task<Produto> ObterPorNome(string nome)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Produto>> ObterTodos()
         {
             throw new NotImplementedException();
         }

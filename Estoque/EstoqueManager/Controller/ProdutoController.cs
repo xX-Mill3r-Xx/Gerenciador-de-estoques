@@ -1,6 +1,7 @@
 ﻿using EstoqueManager.Data;
 using EstoqueManager.Data.Repositories;
 using EstoqueManager.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace EstoqueManager.Controller
@@ -21,6 +22,11 @@ namespace EstoqueManager.Controller
         }
 
         #endregion
+
+        public async Task<IEnumerable<Produto>> ObterProdutos()
+        {
+            return await _produtoRepository.ObterTodos();
+        }
 
         public async Task SalvarProduto(Produto produto)
         {

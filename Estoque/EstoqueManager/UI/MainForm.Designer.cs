@@ -102,7 +102,7 @@
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tlpTop.Controls.Add(this.btnClose, 5, 0);
             this.tlpTop.Controls.Add(this.lbTitulo, 1, 0);
             this.tlpTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -119,7 +119,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::EstoqueManager.Properties.Resources.close;
-            this.btnClose.Location = new System.Drawing.Point(844, 3);
+            this.btnClose.Location = new System.Drawing.Point(843, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(24, 27);
             this.btnClose.TabIndex = 0;
@@ -134,7 +134,7 @@
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
             this.lbTitulo.Location = new System.Drawing.Point(5, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(285, 34);
+            this.lbTitulo.Size = new System.Drawing.Size(284, 34);
             this.lbTitulo.TabIndex = 1;
             this.lbTitulo.Text = "Gerenciamento de estoque";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -263,7 +263,7 @@
             // 
             this.lbCategoria.AutoSize = true;
             this.lbCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategoria.Location = new System.Drawing.Point(38, 57);
+            this.lbCategoria.Location = new System.Drawing.Point(38, 53);
             this.lbCategoria.Name = "lbCategoria";
             this.lbCategoria.Size = new System.Drawing.Size(81, 21);
             this.lbCategoria.TabIndex = 10;
@@ -276,16 +276,16 @@
             this.cbCategoria.Items.AddRange(new object[] {
             "",
             "Eletronicos"});
-            this.cbCategoria.Location = new System.Drawing.Point(125, 55);
+            this.cbCategoria.Location = new System.Drawing.Point(125, 51);
             this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(331, 23);
+            this.cbCategoria.Size = new System.Drawing.Size(338, 23);
             this.cbCategoria.TabIndex = 9;
             // 
             // lbPreco
             // 
             this.lbPreco.AutoSize = true;
             this.lbPreco.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPreco.Location = new System.Drawing.Point(462, 53);
+            this.lbPreco.Location = new System.Drawing.Point(480, 53);
             this.lbPreco.Name = "lbPreco";
             this.lbPreco.Size = new System.Drawing.Size(52, 21);
             this.lbPreco.TabIndex = 8;
@@ -294,24 +294,24 @@
             // txtPreco
             // 
             this.txtPreco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPreco.Location = new System.Drawing.Point(520, 51);
+            this.txtPreco.Location = new System.Drawing.Point(538, 51);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(72, 23);
+            this.txtPreco.Size = new System.Drawing.Size(54, 23);
             this.txtPreco.TabIndex = 7;
             // 
             // txtQuantidade
             // 
             this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuantidade.Location = new System.Drawing.Point(520, 22);
+            this.txtQuantidade.Location = new System.Drawing.Point(538, 22);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(72, 23);
+            this.txtQuantidade.Size = new System.Drawing.Size(54, 23);
             this.txtQuantidade.TabIndex = 6;
             // 
             // lbQuantidade
             // 
             this.lbQuantidade.AutoSize = true;
             this.lbQuantidade.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQuantidade.Location = new System.Drawing.Point(469, 23);
+            this.lbQuantidade.Location = new System.Drawing.Point(487, 24);
             this.lbQuantidade.Name = "lbQuantidade";
             this.lbQuantidade.Size = new System.Drawing.Size(45, 21);
             this.lbQuantidade.TabIndex = 5;
@@ -321,7 +321,7 @@
             // 
             this.lbProdutos.AutoSize = true;
             this.lbProdutos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProdutos.Location = new System.Drawing.Point(42, 23);
+            this.lbProdutos.Location = new System.Drawing.Point(42, 24);
             this.lbProdutos.Name = "lbProdutos";
             this.lbProdutos.Size = new System.Drawing.Size(77, 21);
             this.lbProdutos.TabIndex = 4;
@@ -335,7 +335,7 @@
             this.btnAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.Image = global::EstoqueManager.Properties.Resources.Mais__2_;
-            this.btnAdicionar.Location = new System.Drawing.Point(598, 18);
+            this.btnAdicionar.Location = new System.Drawing.Point(608, 44);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(30, 30);
             this.btnAdicionar.TabIndex = 3;
@@ -350,7 +350,7 @@
             this.btnRemover.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemover.Image = global::EstoqueManager.Properties.Resources.Menos__2_;
-            this.btnRemover.Location = new System.Drawing.Point(634, 18);
+            this.btnRemover.Location = new System.Drawing.Point(644, 44);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(30, 30);
             this.btnRemover.TabIndex = 2;
@@ -369,6 +369,7 @@
             this.btnProcurar.Size = new System.Drawing.Size(30, 30);
             this.btnProcurar.TabIndex = 1;
             this.btnProcurar.UseVisualStyleBackColor = true;
+            this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
             // 
             // txtProdutos
             // 

@@ -4,7 +4,7 @@
     {
         public static string Conexao()
         {
-            string conexao = @"Server=[SEU SERVIDOR];Database=ESTOQUE;Trusted_Connection=True;";
+            string conexao = @"Server=DESKTOP-P27GR0I\SQLEXPRESS;Database=ESTOQUE;Trusted_Connection=True;";
             return conexao;
         }
     }

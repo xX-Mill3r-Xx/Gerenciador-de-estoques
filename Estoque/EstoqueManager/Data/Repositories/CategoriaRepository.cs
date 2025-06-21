@@ -28,6 +28,25 @@ namespace EstoqueManager.Data.Repositories
 
         #endregion
 
+        public async Task<IEnumerable<Categorias>> ObterTodos()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    string sql = @"SELECT Id, Nome FROM Categorias";
+                    await connection.OpenAsync();
+                    var categorias = await connection.QueryAsync<Categorias>(sql);
+                    return categorias;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return Enumerable.Empty<Categorias>();
+            }
+        }
+
         public Task<Categorias> Atualizar(Categorias entity)
         {
             throw new NotImplementedException();
@@ -51,25 +70,6 @@ namespace EstoqueManager.Data.Repositories
         public Task<Categorias> ObterPorNome(string nome)
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<Categorias>> ObterTodos()
-        {
-            try
-            {
-                using (var connection = new SqlConnection(_connectionString))
-                {
-                    string sql = @"SELECT Id, Nome FROM Categorias";
-                    await connection.OpenAsync();
-                    var categorias = await connection.QueryAsync<Categorias>(sql);
-                    return categorias;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return Enumerable.Empty<Categorias>();
-            }
         }
     }
 }
