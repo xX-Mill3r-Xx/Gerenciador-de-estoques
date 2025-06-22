@@ -61,11 +61,14 @@
     <Compile Include="Configuracoes\ConfiguracoesComboBox.cs" />
     <Compile Include="Configuracoes\ConfiguracoesDataGridView.cs" />
     <Compile Include="Controller\CategoriaController.cs" />
+    <Compile Include="Controller\MovimentacoesController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Data\DataBaseConnection.cs" />
     <Compile Include="Data\Repositories\CategoriaRepository.cs" />
+    <Compile Include="Data\Repositories\MovimentacoesRepository.cs" />
     <Compile Include="Data\Repositories\ProdutoRepository.cs" />
     <Compile Include="Data\Services\ICategoriaRepository.cs" />
+    <Compile Include="Data\Services\IMovimentacoesRepository.cs" />
     <Compile Include="Data\Services\IProdutoRepository.cs" />
     <Compile Include="Data\StringConnection.cs" />
     <Compile Include="Models\Categorias.cs" />
