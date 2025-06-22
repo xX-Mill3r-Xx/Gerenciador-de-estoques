@@ -8,11 +8,11 @@ namespace EstoqueManager.Configuracoes
 {
     public static class ConfiguracoesDataGridView
     {
-        public static DataGridView ConfiguracoesdgvRegistrosProdutos(DataGridView dgvRegistros, List<Produto> produtos)
+        #region Estilização
+
+        private static DataGridView EstilizacaoDataGrid(DataGridView dgvRegistros)
         {
             dgvRegistros.Cursor = Cursors.Hand;
-            dgvRegistros.DataSource = produtos.ToList();
-            dgvRegistros.Columns["Preco"].DefaultCellStyle.Format = "N2";
             dgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRegistros.BorderStyle = BorderStyle.None;
             dgvRegistros.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(30, 30, 30);
@@ -33,6 +33,39 @@ namespace EstoqueManager.Configuracoes
             dgvRegistros.MultiSelect = false;
 
             return dgvRegistros;
+        }
+
+        #endregion
+
+        public static DataGridView ConfiguracoesdgvRegistrosProdutos(DataGridView dgvRegistros, List<Produto> produtos)
+        {
+            dgvRegistros.DataSource = produtos.ToList();
+            dgvRegistros = EstilizacaoDataGrid(dgvRegistros);
+            dgvRegistros.Columns["Preco"].DefaultCellStyle.Format = "N2";
+            return dgvRegistros;
+        }
+
+        public static DataGridView ConfiguracoesdgvRegistrosCategoria(DataGridView dgvRegistros, List<Categorias> categorias)
+        {
+            dgvRegistros.DataSource = categorias.ToList();
+            dgvRegistros = EstilizacaoDataGrid(dgvRegistros);
+            return dgvRegistros;
+        }
+
+        public static void AdicionarColunaExcluir(DataGridView dgvRegistros)
+        {
+            if (!dgvRegistros.Columns.Contains("Excluir"))
+            {
+                var colunaExcluir = new DataGridViewImageColumn();
+                colunaExcluir.Name = "Excluir";
+                colunaExcluir.HeaderText = "Excluir";
+                colunaExcluir.Width = 35;
+                colunaExcluir.Image = Properties.Resources.Deletar;
+                colunaExcluir.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                colunaExcluir.ToolTipText = "Excluir";
+
+                dgvRegistros.Columns.Add(colunaExcluir);
+            }
         }
     }
 }

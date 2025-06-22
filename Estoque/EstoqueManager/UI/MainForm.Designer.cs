@@ -45,6 +45,7 @@
             this.txtProdutos = new System.Windows.Forms.TextBox();
             this.pnDataGrid = new System.Windows.Forms.Panel();
             this.dgvRegistros = new System.Windows.Forms.DataGridView();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnClose = new System.Windows.Forms.Button();
             this.btnRelatorios = new System.Windows.Forms.Button();
             this.btnSaida = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@
             this.btnInserirCategoria = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnProcurar = new System.Windows.Forms.Button();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tlpPrincipal.SuspendLayout();
             this.pnBarraSuperior.SuspendLayout();
             this.tlpTop.SuspendLayout();
@@ -104,7 +104,7 @@
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tlpTop.Controls.Add(this.btnClose, 5, 0);
             this.tlpTop.Controls.Add(this.lbTitulo, 1, 0);
             this.tlpTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -123,7 +123,7 @@
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
             this.lbTitulo.Location = new System.Drawing.Point(5, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(280, 34);
+            this.lbTitulo.Size = new System.Drawing.Size(279, 34);
             this.lbTitulo.TabIndex = 1;
             this.lbTitulo.Text = "Gerenciamento de estoque";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -274,7 +274,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::EstoqueManager.Properties.Resources.close;
-            this.btnClose.Location = new System.Drawing.Point(839, 3);
+            this.btnClose.Location = new System.Drawing.Point(838, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(24, 27);
             this.btnClose.TabIndex = 0;
@@ -379,6 +379,7 @@
             this.btnInserirCategoria.Size = new System.Drawing.Size(30, 30);
             this.btnInserirCategoria.TabIndex = 12;
             this.btnInserirCategoria.UseVisualStyleBackColor = true;
+            this.btnInserirCategoria.Click += new System.EventHandler(this.btnInserirCategoria_Click);
             // 
             // btnAdicionar
             // 

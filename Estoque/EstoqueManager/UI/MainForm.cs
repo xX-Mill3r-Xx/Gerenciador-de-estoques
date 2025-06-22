@@ -1,6 +1,7 @@
 ﻿using EstoqueManager.Configuracoes;
 using EstoqueManager.Controller;
 using EstoqueManager.Models;
+using EstoqueManager.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,22 +52,6 @@ namespace EstoqueManager
             cbCategoria = ConfiguracoesComboBox.ConfiguracoesComboboxCategoria(cbCategoria, categorias.ToList());
         }
 
-        private void AdicionarColunaExcluir()
-        {
-            if (!dgvRegistros.Columns.Contains("Excluir"))
-            {
-                var colunaExcluir = new DataGridViewImageColumn();
-                colunaExcluir.Name = "Excluir";
-                colunaExcluir.HeaderText = "Excluir";
-                colunaExcluir.Width = 35;
-                colunaExcluir.Image = Properties.Resources.Deletar;
-                colunaExcluir.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                colunaExcluir.ToolTipText = "Excluir";
-
-                dgvRegistros.Columns.Add(colunaExcluir);
-            }
-        }
-
         #endregion
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -113,7 +98,7 @@ namespace EstoqueManager
             try
             {
                 await BuscarTodosProdutos();
-                AdicionarColunaExcluir();
+                ConfiguracoesDataGridView.AdicionarColunaExcluir(dgvRegistros);
             }
             catch (Exception ex)
             {
@@ -258,6 +243,12 @@ namespace EstoqueManager
                     }
                 }
             }
+        }
+
+        private void btnInserirCategoria_Click(object sender, EventArgs e)
+        {
+            FrmCategoriasCadastro cadastroCategoria = new FrmCategoriasCadastro();
+            cadastroCategoria.Show();
         }
     }
 }

@@ -72,6 +72,12 @@
     <Compile Include="Models\Movimentacoes.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="UI\FrmCategoriasCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmCategoriasCadastro.Designer.cs">
+      <DependentUpon>FrmCategoriasCadastro.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\FrmCategoriasCadastro.resx">
+      <DependentUpon>FrmCategoriasCadastro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
