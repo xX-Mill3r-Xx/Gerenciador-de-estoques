@@ -83,6 +83,16 @@ namespace EstoqueManager.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Deletar {
+            get {
+                object obj = ResourceManager.GetObject("Deletar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Entrada {
             get {
                 object obj = ResourceManager.GetObject("Entrada", resourceCulture);
@@ -176,6 +186,16 @@ namespace EstoqueManager.Properties {
         internal static System.Drawing.Bitmap Saida {
             get {
                 object obj = ResourceManager.GetObject("Saida", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Salvar {
+            get {
+                object obj = ResourceManager.GetObject("Salvar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

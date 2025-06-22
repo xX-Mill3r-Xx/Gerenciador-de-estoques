@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.pnBarraSuperior = new System.Windows.Forms.Panel();
             this.tlpTop = new System.Windows.Forms.TableLayoutPanel();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.pnLatera = new System.Windows.Forms.Panel();
             this.pnControles = new System.Windows.Forms.Panel();
+            this.btnNovoProduto = new System.Windows.Forms.Button();
             this.lbCategoria = new System.Windows.Forms.Label();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.lbPreco = new System.Windows.Forms.Label();
@@ -49,9 +51,10 @@
             this.btnEntradas = new System.Windows.Forms.Button();
             this.btnProdutos = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
+            this.btnInserirCategoria = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnProcurar = new System.Windows.Forms.Button();
-            this.btnNovoProduto = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tlpPrincipal.SuspendLayout();
             this.pnBarraSuperior.SuspendLayout();
             this.tlpTop.SuspendLayout();
@@ -77,7 +80,7 @@
             this.tlpPrincipal.RowCount = 3;
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 540F));
+            this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 545F));
             this.tlpPrincipal.Size = new System.Drawing.Size(893, 701);
             this.tlpPrincipal.TabIndex = 0;
             // 
@@ -101,7 +104,7 @@
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpTop.Controls.Add(this.btnClose, 5, 0);
             this.tlpTop.Controls.Add(this.lbTitulo, 1, 0);
             this.tlpTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -120,7 +123,7 @@
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
             this.lbTitulo.Location = new System.Drawing.Point(5, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(282, 34);
+            this.lbTitulo.Size = new System.Drawing.Size(280, 34);
             this.lbTitulo.TabIndex = 1;
             this.lbTitulo.Text = "Gerenciamento de estoque";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -143,6 +146,7 @@
             // pnControles
             // 
             this.pnControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
+            this.pnControles.Controls.Add(this.btnInserirCategoria);
             this.pnControles.Controls.Add(this.btnNovoProduto);
             this.pnControles.Controls.Add(this.lbCategoria);
             this.pnControles.Controls.Add(this.cbCategoria);
@@ -156,8 +160,24 @@
             this.pnControles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControles.Location = new System.Drawing.Point(207, 43);
             this.pnControles.Name = "pnControles";
-            this.pnControles.Size = new System.Drawing.Size(683, 115);
+            this.pnControles.Size = new System.Drawing.Size(683, 110);
             this.pnControles.TabIndex = 2;
+            // 
+            // btnNovoProduto
+            // 
+            this.btnNovoProduto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNovoProduto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnNovoProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnNovoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoProduto.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoProduto.Location = new System.Drawing.Point(3, 3);
+            this.btnNovoProduto.Name = "btnNovoProduto";
+            this.btnNovoProduto.Size = new System.Drawing.Size(95, 25);
+            this.btnNovoProduto.TabIndex = 11;
+            this.btnNovoProduto.Text = "Novo Produto";
+            this.btnNovoProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovoProduto.UseVisualStyleBackColor = true;
+            this.btnNovoProduto.Click += new System.EventHandler(this.btnNovoProduto_Click);
             // 
             // lbCategoria
             // 
@@ -178,31 +198,31 @@
             "Eletronicos"});
             this.cbCategoria.Location = new System.Drawing.Point(107, 34);
             this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(456, 23);
+            this.cbCategoria.Size = new System.Drawing.Size(420, 23);
             this.cbCategoria.TabIndex = 9;
             // 
             // lbPreco
             // 
             this.lbPreco.AutoSize = true;
             this.lbPreco.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPreco.Location = new System.Drawing.Point(569, 36);
+            this.lbPreco.Location = new System.Drawing.Point(3, 70);
             this.lbPreco.Name = "lbPreco";
-            this.lbPreco.Size = new System.Drawing.Size(52, 21);
+            this.lbPreco.Size = new System.Drawing.Size(79, 21);
             this.lbPreco.TabIndex = 8;
-            this.lbPreco.Text = "Preço";
+            this.lbPreco.Text = "Preço R$:";
             // 
             // txtPreco
             // 
             this.txtPreco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPreco.Location = new System.Drawing.Point(627, 34);
+            this.txtPreco.Location = new System.Drawing.Point(107, 68);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(47, 23);
+            this.txtPreco.Size = new System.Drawing.Size(82, 23);
             this.txtPreco.TabIndex = 7;
             // 
             // txtQuantidade
             // 
             this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuantidade.Location = new System.Drawing.Point(627, 5);
+            this.txtQuantidade.Location = new System.Drawing.Point(480, 70);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(47, 23);
             this.txtQuantidade.TabIndex = 6;
@@ -211,7 +231,7 @@
             // 
             this.lbQuantidade.AutoSize = true;
             this.lbQuantidade.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQuantidade.Location = new System.Drawing.Point(569, 7);
+            this.lbQuantidade.Location = new System.Drawing.Point(429, 72);
             this.lbQuantidade.Name = "lbQuantidade";
             this.lbQuantidade.Size = new System.Drawing.Size(45, 21);
             this.lbQuantidade.TabIndex = 5;
@@ -222,7 +242,7 @@
             this.txtProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProdutos.Location = new System.Drawing.Point(107, 5);
             this.txtProdutos.Name = "txtProdutos";
-            this.txtProdutos.Size = new System.Drawing.Size(456, 23);
+            this.txtProdutos.Size = new System.Drawing.Size(420, 23);
             this.txtProdutos.TabIndex = 0;
             this.txtProdutos.TextChanged += new System.EventHandler(this.txtProdutos_TextChanged);
             // 
@@ -231,9 +251,9 @@
             this.pnDataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.pnDataGrid.Controls.Add(this.dgvRegistros);
             this.pnDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDataGrid.Location = new System.Drawing.Point(207, 164);
+            this.pnDataGrid.Location = new System.Drawing.Point(207, 159);
             this.pnDataGrid.Name = "pnDataGrid";
-            this.pnDataGrid.Size = new System.Drawing.Size(683, 534);
+            this.pnDataGrid.Size = new System.Drawing.Size(683, 539);
             this.pnDataGrid.TabIndex = 3;
             // 
             // dgvRegistros
@@ -242,7 +262,7 @@
             this.dgvRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRegistros.Location = new System.Drawing.Point(0, 0);
             this.dgvRegistros.Name = "dgvRegistros";
-            this.dgvRegistros.Size = new System.Drawing.Size(683, 534);
+            this.dgvRegistros.Size = new System.Drawing.Size(683, 539);
             this.dgvRegistros.TabIndex = 0;
             this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
             this.dgvRegistros.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellEndEdit);
@@ -254,7 +274,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::EstoqueManager.Properties.Resources.close;
-            this.btnClose.Location = new System.Drawing.Point(841, 3);
+            this.btnClose.Location = new System.Drawing.Point(839, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(24, 27);
             this.btnClose.TabIndex = 0;
@@ -346,6 +366,20 @@
             this.btnDashBoard.Text = "Dashboard";
             this.btnDashBoard.UseVisualStyleBackColor = true;
             // 
+            // btnInserirCategoria
+            // 
+            this.btnInserirCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInserirCategoria.FlatAppearance.BorderSize = 0;
+            this.btnInserirCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnInserirCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnInserirCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserirCategoria.Image = global::EstoqueManager.Properties.Resources.Mais__2_;
+            this.btnInserirCategoria.Location = new System.Drawing.Point(533, 29);
+            this.btnInserirCategoria.Name = "btnInserirCategoria";
+            this.btnInserirCategoria.Size = new System.Drawing.Size(30, 30);
+            this.btnInserirCategoria.TabIndex = 12;
+            this.btnInserirCategoria.UseVisualStyleBackColor = true;
+            // 
             // btnAdicionar
             // 
             this.btnAdicionar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -353,11 +387,15 @@
             this.btnAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAdicionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdicionar.Image = global::EstoqueManager.Properties.Resources.Mais__2_;
-            this.btnAdicionar.Location = new System.Drawing.Point(644, 82);
+            this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionar.Image = global::EstoqueManager.Properties.Resources.Salvar;
+            this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAdicionar.Location = new System.Drawing.Point(600, 46);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(30, 30);
+            this.btnAdicionar.Size = new System.Drawing.Size(74, 57);
             this.btnAdicionar.TabIndex = 3;
+            this.btnAdicionar.Text = "Salvar";
+            this.btnAdicionar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
@@ -369,28 +407,12 @@
             this.btnProcurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnProcurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcurar.Image = global::EstoqueManager.Properties.Resources.Procurar;
-            this.btnProcurar.Location = new System.Drawing.Point(7, 82);
+            this.btnProcurar.Location = new System.Drawing.Point(533, -1);
             this.btnProcurar.Name = "btnProcurar";
             this.btnProcurar.Size = new System.Drawing.Size(30, 30);
             this.btnProcurar.TabIndex = 1;
             this.btnProcurar.UseVisualStyleBackColor = true;
             this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
-            // 
-            // btnNovoProduto
-            // 
-            this.btnNovoProduto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNovoProduto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.btnNovoProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnNovoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoProduto.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovoProduto.Location = new System.Drawing.Point(6, 3);
-            this.btnNovoProduto.Name = "btnNovoProduto";
-            this.btnNovoProduto.Size = new System.Drawing.Size(95, 25);
-            this.btnNovoProduto.TabIndex = 11;
-            this.btnNovoProduto.Text = "Novo Produto";
-            this.btnNovoProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovoProduto.UseVisualStyleBackColor = true;
-            this.btnNovoProduto.Click += new System.EventHandler(this.btnNovoProduto_Click);
             // 
             // MainForm
             // 
@@ -443,6 +465,8 @@
         private System.Windows.Forms.Label lbCategoria;
         private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.Button btnNovoProduto;
+        private System.Windows.Forms.Button btnInserirCategoria;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

@@ -29,6 +29,42 @@ namespace EstoqueManager
             InitializeComponent();
             _produtoController = new ProdutoController();
             _categoriaController = new CategoriaController();
+
+            InicializarToolTips();
+        }
+
+        #endregion
+
+        #region Configurações Iniciais
+
+        private void InicializarToolTips()
+        {
+            toolTip.SetToolTip(btnAdicionar, "Salvar produto");
+            toolTip.SetToolTip(btnClose, "Fechar Aplicação");
+            toolTip.SetToolTip(btnInserirCategoria, "Nova categoria");
+            toolTip.SetToolTip(btnProcurar, "Buscar Produto(s)");
+        }
+
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+            var categorias = await _categoriaController.ObterCategorias();
+            cbCategoria = ConfiguracoesComboBox.ConfiguracoesComboboxCategoria(cbCategoria, categorias.ToList());
+        }
+
+        private void AdicionarColunaExcluir()
+        {
+            if (!dgvRegistros.Columns.Contains("Excluir"))
+            {
+                var colunaExcluir = new DataGridViewImageColumn();
+                colunaExcluir.Name = "Excluir";
+                colunaExcluir.HeaderText = "Excluir";
+                colunaExcluir.Width = 35;
+                colunaExcluir.Image = Properties.Resources.Deletar;
+                colunaExcluir.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                colunaExcluir.ToolTipText = "Excluir";
+
+                dgvRegistros.Columns.Add(colunaExcluir);
+            }
         }
 
         #endregion
@@ -70,12 +106,6 @@ namespace EstoqueManager
 
             await _produtoController.SalvarProduto(produto);
             MessageBox.Show("Produto salvo com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private async void MainForm_Load(object sender, EventArgs e)
-        {
-            var categorias = await _categoriaController.ObterCategorias();
-            cbCategoria = ConfiguracoesComboBox.ConfiguracoesComboboxCategoria(cbCategoria, categorias.ToList());
         }
 
         private async void btnProcurar_Click(object sender, EventArgs e)
@@ -145,22 +175,6 @@ namespace EstoqueManager
             if (_modoInsercaoAtivo)
                 return;
             BuscaDinamica();
-        }
-
-        private void AdicionarColunaExcluir()
-        {
-            if (!dgvRegistros.Columns.Contains("Excluir"))
-            {
-                var colunaExcluir = new DataGridViewImageColumn();
-                colunaExcluir.Name = "Excluir";
-                colunaExcluir.HeaderText = "Excluir";
-                colunaExcluir.Width = 35;
-                colunaExcluir.Image = Properties.Resources.lixeira;
-                colunaExcluir.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                colunaExcluir.ToolTipText = "Excluir";
-
-                dgvRegistros.Columns.Add(colunaExcluir);
-            }
         }
 
         private async void dgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
