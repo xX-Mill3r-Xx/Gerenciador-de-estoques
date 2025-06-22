@@ -34,12 +34,14 @@ namespace EstoqueManager.Data.Repositories
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     string sql = @"SELECT 
-	                                    Id, 
-	                                    Nome, 
-	                                    Quantidade, 
-	                                    Preco, 
-	                                    CategoriaId 
-                                    FROM Produtos";
+	                                    produto.Id, 
+	                                    produto.Nome, 
+	                                    produto.Quantidade, 
+	                                    produto.Preco, 
+	                                    produto.CategoriaId,
+	                                    categoria.Nome AS Categoria
+                                    FROM Produtos produto
+	                                    JOIN Categorias categoria ON produto.CategoriaId = categoria.Id";
                     await connection.OpenAsync();
                     var produtos = await connection.QueryAsync<Produto>(sql);
                     return produtos;
@@ -59,13 +61,15 @@ namespace EstoqueManager.Data.Repositories
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     string sql = @"SELECT 
-	                                    Id, 
-	                                    Nome, 
-	                                    Quantidade, 
-	                                    Preco, 
-	                                    CategoriaId 
-                                    FROM Produtos
-                                    WHERE Id = @Id";
+	                                    produto.Id, 
+	                                    produto.Nome, 
+	                                    produto.Quantidade, 
+	                                    produto.Preco, 
+	                                    produto.CategoriaId,
+	                                    categoria.Nome AS Categoria
+                                    FROM Produtos produto
+	                                    JOIN Categorias categoria ON produto.CategoriaId = categoria.Id
+                                    WHERE produto.Id = @Id";
 
                     await connection.OpenAsync();
                     var produto = await connection.QueryFirstOrDefaultAsync<Produto>(sql, new { Id = id });
@@ -86,13 +90,15 @@ namespace EstoqueManager.Data.Repositories
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     string sql = @"SELECT 
-	                                    Id, 
-	                                    Nome, 
-	                                    Quantidade, 
-	                                    Preco, 
-	                                    CategoriaId 
-                                    FROM Produtos
-                                    WHERE Nome LIKE @Nome";
+	                                    produto.Id, 
+	                                    produto.Nome, 
+	                                    produto.Quantidade, 
+	                                    produto.Preco, 
+	                                    produto.CategoriaId,
+	                                    categoria.Nome AS Categoria
+                                    FROM Produtos produto
+	                                    JOIN Categorias categoria ON produto.CategoriaId = categoria.Id
+                                    WHERE produto.Nome LIKE @Nome";
 
                     await connection.OpenAsync();
                     var produto = await connection.QueryFirstOrDefaultAsync<Produto>(sql, new { Nome = nome });
