@@ -27,5 +27,30 @@ namespace EstoqueManager.Controller
         {
             return await _categoriaRepository.ObterTodos();
         }
+
+        public async Task<Categorias> ObterCategoriasPorId(int id)
+        {
+            return await _categoriaRepository.ObterPorId(id);
+        }
+
+        public async Task<Categorias> ObterCategoriasPorNome(string nome)
+        {
+            return await _categoriaRepository.ObterPorNome(nome);
+        }
+
+        public async Task SalvarCategoria(Categorias categoria)
+        {
+            await _categoriaRepository.Inserir(categoria);
+        }
+
+        public async Task<Categorias> AtualizarCategorias(Categorias categoria)
+        {
+            return await _categoriaRepository.Atualizar(categoria);
+        }
+
+        public async Task<Categorias> DeletarCategoria(int id)
+        {
+            return await _categoriaRepository.Deletar(id);
+        }
     }
 }
