@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Scripts\01\CriacaoInicial.txt" />
+    <None Include="Resources\Buscar32x32.png" />
     <None Include="Resources\Deletar.png" />
     <None Include="Resources\Salvar.png" />
     <None Include="Resources\lixeira.png" />

@@ -77,5 +77,11 @@ namespace EstoqueManager.UI
                 txtNome.Focus();
             }
         }
+
+        private async void btnBuscar_Click(object sender, EventArgs e)
+        {
+            tcPrincipal.SelectedTab = tpConsultar;
+            await CarregarDgvRegistros();
+        }
     }
 }

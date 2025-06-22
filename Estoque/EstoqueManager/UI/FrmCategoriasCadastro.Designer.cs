@@ -30,20 +30,21 @@
         {
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.pnFundoTitulo = new System.Windows.Forms.Panel();
-            this.pnPrincipal = new System.Windows.Forms.Panel();
             this.tlpTitulo = new System.Windows.Forms.TableLayoutPanel();
             this.lbTitulo = new System.Windows.Forms.Label();
+            this.pnPrincipal = new System.Windows.Forms.Panel();
             this.tcPrincipal = new System.Windows.Forms.TabControl();
             this.tpEdicao = new System.Windows.Forms.TabPage();
-            this.tpConsultar = new System.Windows.Forms.TabPage();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.tpConsultar = new System.Windows.Forms.TabPage();
             this.dgvRegistros = new System.Windows.Forms.DataGridView();
             this.tlpPrincipal.SuspendLayout();
             this.pnFundoTitulo.SuspendLayout();
-            this.pnPrincipal.SuspendLayout();
             this.tlpTitulo.SuspendLayout();
+            this.pnPrincipal.SuspendLayout();
             this.tcPrincipal.SuspendLayout();
             this.tpEdicao.SuspendLayout();
             this.tpConsultar.SuspendLayout();
@@ -77,16 +78,6 @@
             this.pnFundoTitulo.Size = new System.Drawing.Size(483, 24);
             this.pnFundoTitulo.TabIndex = 0;
             // 
-            // pnPrincipal
-            // 
-            this.tlpPrincipal.SetColumnSpan(this.pnPrincipal, 2);
-            this.pnPrincipal.Controls.Add(this.tcPrincipal);
-            this.pnPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnPrincipal.Location = new System.Drawing.Point(3, 33);
-            this.pnPrincipal.Name = "pnPrincipal";
-            this.pnPrincipal.Size = new System.Drawing.Size(483, 271);
-            this.pnPrincipal.TabIndex = 1;
-            // 
             // tlpTitulo
             // 
             this.tlpTitulo.ColumnCount = 3;
@@ -113,6 +104,16 @@
             this.lbTitulo.TabIndex = 0;
             this.lbTitulo.Text = "Categorias";
             // 
+            // pnPrincipal
+            // 
+            this.tlpPrincipal.SetColumnSpan(this.pnPrincipal, 2);
+            this.pnPrincipal.Controls.Add(this.tcPrincipal);
+            this.pnPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnPrincipal.Location = new System.Drawing.Point(3, 33);
+            this.pnPrincipal.Name = "pnPrincipal";
+            this.pnPrincipal.Size = new System.Drawing.Size(483, 271);
+            this.pnPrincipal.TabIndex = 1;
+            // 
             // tcPrincipal
             // 
             this.tcPrincipal.Controls.Add(this.tpEdicao);
@@ -126,6 +127,7 @@
             // 
             // tpEdicao
             // 
+            this.tpEdicao.Controls.Add(this.btnBuscar);
             this.tpEdicao.Controls.Add(this.btnAdicionar);
             this.tpEdicao.Controls.Add(this.txtNome);
             this.tpEdicao.Controls.Add(this.txtId);
@@ -137,32 +139,24 @@
             this.tpEdicao.Text = "Inserir/Editar";
             this.tpEdicao.UseVisualStyleBackColor = true;
             // 
-            // tpConsultar
+            // btnBuscar
             // 
-            this.tpConsultar.Controls.Add(this.dgvRegistros);
-            this.tpConsultar.Location = new System.Drawing.Point(4, 24);
-            this.tpConsultar.Name = "tpConsultar";
-            this.tpConsultar.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConsultar.Size = new System.Drawing.Size(475, 243);
-            this.tpConsultar.TabIndex = 1;
-            this.tpConsultar.Text = "Consultar";
-            this.tpConsultar.UseVisualStyleBackColor = true;
-            // 
-            // txtId
-            // 
-            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtId.Location = new System.Drawing.Point(18, 38);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(38, 23);
-            this.txtId.TabIndex = 0;
-            // 
-            // txtNome
-            // 
-            this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNome.Location = new System.Drawing.Point(64, 38);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(388, 23);
-            this.txtNome.TabIndex = 1;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::EstoqueManager.Properties.Resources.Buscar32x32;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.Location = new System.Drawing.Point(298, 180);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(74, 57);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnAdicionar
             // 
@@ -182,6 +176,33 @@
             this.btnAdicionar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
+            // txtNome
+            // 
+            this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNome.Location = new System.Drawing.Point(64, 38);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(388, 23);
+            this.txtNome.TabIndex = 1;
+            // 
+            // txtId
+            // 
+            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtId.Location = new System.Drawing.Point(18, 38);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(38, 23);
+            this.txtId.TabIndex = 0;
+            // 
+            // tpConsultar
+            // 
+            this.tpConsultar.Controls.Add(this.dgvRegistros);
+            this.tpConsultar.Location = new System.Drawing.Point(4, 24);
+            this.tpConsultar.Name = "tpConsultar";
+            this.tpConsultar.Padding = new System.Windows.Forms.Padding(3);
+            this.tpConsultar.Size = new System.Drawing.Size(475, 243);
+            this.tpConsultar.TabIndex = 1;
+            this.tpConsultar.Text = "Consultar";
+            this.tpConsultar.UseVisualStyleBackColor = true;
             // 
             // dgvRegistros
             // 
@@ -207,9 +228,9 @@
             this.Load += new System.EventHandler(this.FrmCategoriasCadastro_Load);
             this.tlpPrincipal.ResumeLayout(false);
             this.pnFundoTitulo.ResumeLayout(false);
-            this.pnPrincipal.ResumeLayout(false);
             this.tlpTitulo.ResumeLayout(false);
             this.tlpTitulo.PerformLayout();
+            this.pnPrincipal.ResumeLayout(false);
             this.tcPrincipal.ResumeLayout(false);
             this.tpEdicao.ResumeLayout(false);
             this.tpEdicao.PerformLayout();
@@ -233,5 +254,6 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.DataGridView dgvRegistros;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
