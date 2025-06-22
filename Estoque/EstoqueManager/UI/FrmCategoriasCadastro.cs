@@ -18,6 +18,7 @@ namespace EstoqueManager.UI
         #region Properties
 
         CategoriaController _categoriaController;
+        private Categorias _categoriaEditada;
 
         #endregion
 
@@ -82,6 +83,73 @@ namespace EstoqueManager.UI
         {
             tcPrincipal.SelectedTab = tpConsultar;
             await CarregarDgvRegistros();
+        }
+
+        private async void dgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvRegistros.Columns["Excluir"].Index && e.RowIndex >= 0)
+            {
+                var categoria = dgvRegistros.Rows[e.RowIndex].DataBoundItem as Categorias;
+                var confirma = MessageBox.Show($"Deseja realmente excluir a categoria \"{categoria.Nome}\"?",
+                        "Confirmar?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (confirma == DialogResult.Yes)
+                {
+                    var resultado = await _categoriaController.DeletarCategoria(categoria.Id);
+                    if (resultado != null)
+                    {
+                        MessageBox.Show("Categoria excluida com sucesso", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await CarregarDgvRegistros();
+                    }
+                }
+            }
+        }
+
+        private async void dgvRegistros_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && dgvRegistros.IsCurrentCellInEditMode)
+            {
+                e.SuppressKeyPress = true;
+                dgvRegistros.EndEdit();
+            }
+
+            if (e.KeyCode == Keys.Delete && dgvRegistros.SelectedRows.Count > 0)
+            {
+                var categoria = dgvRegistros.SelectedRows[0].DataBoundItem as Categorias;
+                if (categoria != null)
+                {
+                    var confirma = MessageBox.Show($"Deseja realmente excluir a categoria \"{categoria.Nome}\"?",
+                        "Confirmar?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (confirma == DialogResult.Yes)
+                    {
+                        var resultado = await _categoriaController.DeletarCategoria(categoria.Id);
+                        if (resultado != null)
+                        {
+                            MessageBox.Show("Categoria excluida com sucesso", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            await CarregarDgvRegistros();
+                        }
+                    }
+                }
+            }
+        }
+
+        private async void dgvRegistros_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                _categoriaEditada = dgvRegistros.Rows[e.RowIndex].DataBoundItem as Categorias;
+                if (_categoriaEditada != null)
+                {
+                    var resultado = await _categoriaController.AtualizarCategorias(_categoriaEditada);
+                    if (resultado != null)
+                    {
+                        MessageBox.Show("Categoria atualizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao atualizar categoria", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }
