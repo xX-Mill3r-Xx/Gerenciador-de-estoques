@@ -38,7 +38,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.tpConsultar = new System.Windows.Forms.TabPage();
             this.dgvRegistros = new System.Windows.Forms.DataGridView();
             this.tlpPrincipal.SuspendLayout();
@@ -64,7 +63,7 @@
             this.tlpPrincipal.RowCount = 2;
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPrincipal.Size = new System.Drawing.Size(489, 307);
+            this.tlpPrincipal.Size = new System.Drawing.Size(318, 241);
             this.tlpPrincipal.TabIndex = 0;
             // 
             // pnFundoTitulo
@@ -75,7 +74,7 @@
             this.pnFundoTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnFundoTitulo.Location = new System.Drawing.Point(3, 3);
             this.pnFundoTitulo.Name = "pnFundoTitulo";
-            this.pnFundoTitulo.Size = new System.Drawing.Size(483, 24);
+            this.pnFundoTitulo.Size = new System.Drawing.Size(312, 24);
             this.pnFundoTitulo.TabIndex = 0;
             // 
             // tlpTitulo
@@ -90,7 +89,7 @@
             this.tlpTitulo.Name = "tlpTitulo";
             this.tlpTitulo.RowCount = 1;
             this.tlpTitulo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTitulo.Size = new System.Drawing.Size(483, 24);
+            this.tlpTitulo.Size = new System.Drawing.Size(312, 24);
             this.tlpTitulo.TabIndex = 0;
             // 
             // lbTitulo
@@ -111,7 +110,7 @@
             this.pnPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnPrincipal.Location = new System.Drawing.Point(3, 33);
             this.pnPrincipal.Name = "pnPrincipal";
-            this.pnPrincipal.Size = new System.Drawing.Size(483, 271);
+            this.pnPrincipal.Size = new System.Drawing.Size(312, 205);
             this.pnPrincipal.TabIndex = 1;
             // 
             // tcPrincipal
@@ -122,7 +121,7 @@
             this.tcPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tcPrincipal.Name = "tcPrincipal";
             this.tcPrincipal.SelectedIndex = 0;
-            this.tcPrincipal.Size = new System.Drawing.Size(483, 271);
+            this.tcPrincipal.Size = new System.Drawing.Size(312, 205);
             this.tcPrincipal.TabIndex = 0;
             // 
             // tpEdicao
@@ -130,11 +129,10 @@
             this.tpEdicao.Controls.Add(this.btnBuscar);
             this.tpEdicao.Controls.Add(this.btnAdicionar);
             this.tpEdicao.Controls.Add(this.txtNome);
-            this.tpEdicao.Controls.Add(this.txtId);
             this.tpEdicao.Location = new System.Drawing.Point(4, 24);
             this.tpEdicao.Name = "tpEdicao";
             this.tpEdicao.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEdicao.Size = new System.Drawing.Size(475, 243);
+            this.tpEdicao.Size = new System.Drawing.Size(304, 177);
             this.tpEdicao.TabIndex = 0;
             this.tpEdicao.Text = "Inserir/Editar";
             this.tpEdicao.UseVisualStyleBackColor = true;
@@ -149,9 +147,9 @@
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = global::EstoqueManager.Properties.Resources.Buscar32x32;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscar.Location = new System.Drawing.Point(298, 180);
+            this.btnBuscar.Location = new System.Drawing.Point(175, 105);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(74, 57);
+            this.btnBuscar.Size = new System.Drawing.Size(51, 57);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -168,9 +166,9 @@
             this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.Image = global::EstoqueManager.Properties.Resources.Salvar;
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAdicionar.Location = new System.Drawing.Point(378, 180);
+            this.btnAdicionar.Location = new System.Drawing.Point(232, 105);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(74, 57);
+            this.btnAdicionar.Size = new System.Drawing.Size(49, 57);
             this.btnAdicionar.TabIndex = 4;
             this.btnAdicionar.Text = "Salvar";
             this.btnAdicionar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -180,18 +178,10 @@
             // txtNome
             // 
             this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNome.Location = new System.Drawing.Point(64, 38);
+            this.txtNome.Location = new System.Drawing.Point(18, 38);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(388, 23);
+            this.txtNome.Size = new System.Drawing.Size(263, 23);
             this.txtNome.TabIndex = 1;
-            // 
-            // txtId
-            // 
-            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtId.Location = new System.Drawing.Point(18, 38);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(38, 23);
-            this.txtId.TabIndex = 0;
             // 
             // tpConsultar
             // 
@@ -199,7 +189,7 @@
             this.tpConsultar.Location = new System.Drawing.Point(4, 24);
             this.tpConsultar.Name = "tpConsultar";
             this.tpConsultar.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConsultar.Size = new System.Drawing.Size(475, 243);
+            this.tpConsultar.Size = new System.Drawing.Size(304, 177);
             this.tpConsultar.TabIndex = 1;
             this.tpConsultar.Text = "Consultar";
             this.tpConsultar.UseVisualStyleBackColor = true;
@@ -210,7 +200,7 @@
             this.dgvRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRegistros.Location = new System.Drawing.Point(3, 3);
             this.dgvRegistros.Name = "dgvRegistros";
-            this.dgvRegistros.Size = new System.Drawing.Size(469, 237);
+            this.dgvRegistros.Size = new System.Drawing.Size(298, 171);
             this.dgvRegistros.TabIndex = 0;
             this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
             this.dgvRegistros.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellEndEdit);
@@ -220,11 +210,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 307);
+            this.ClientSize = new System.Drawing.Size(318, 241);
             this.Controls.Add(this.tlpPrincipal);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
             this.Name = "FrmCategoriasCadastro";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -254,7 +245,6 @@
         private System.Windows.Forms.TabPage tpEdicao;
         private System.Windows.Forms.TabPage tpConsultar;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.DataGridView dgvRegistros;
         private System.Windows.Forms.Button btnBuscar;
