@@ -2,12 +2,7 @@
 using EstoqueManager.Controller;
 using EstoqueManager.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,6 +26,17 @@ namespace EstoqueManager.UI
         }
 
         #endregion
+
+        #region Eventos
+
+        public event EventHandler CategoriasAlteradas;
+
+        #endregion
+
+        private void OnCategoriasAlteradas()
+        {
+            CategoriasAlteradas?.Invoke(this, EventArgs.Empty);
+        }
 
         private async void FrmCategoriasCadastro_Load(object sender, EventArgs e)
         {
@@ -71,6 +77,8 @@ namespace EstoqueManager.UI
                 txtNome.Clear();
                 await CarregarDgvRegistros();
                 tcPrincipal.SelectedTab = tpConsultar;
+
+                OnCategoriasAlteradas();
             }
             else
             {
@@ -99,6 +107,8 @@ namespace EstoqueManager.UI
                     {
                         MessageBox.Show("Categoria excluida com sucesso", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         await CarregarDgvRegistros();
+
+                        OnCategoriasAlteradas();
                     }
                 }
             }
@@ -126,6 +136,8 @@ namespace EstoqueManager.UI
                         {
                             MessageBox.Show("Categoria excluida com sucesso", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             await CarregarDgvRegistros();
+
+                            OnCategoriasAlteradas();
                         }
                     }
                 }
@@ -143,6 +155,8 @@ namespace EstoqueManager.UI
                     if (resultado != null)
                     {
                         MessageBox.Show("Categoria atualizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        OnCategoriasAlteradas();
                     }
                     else
                     {

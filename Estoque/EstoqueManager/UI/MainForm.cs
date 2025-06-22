@@ -48,8 +48,10 @@ namespace EstoqueManager
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            var categorias = await _categoriaController.ObterCategorias();
-            cbCategoria = ConfiguracoesComboBox.ConfiguracoesComboboxCategoria(cbCategoria, categorias.ToList());
+            if (_categoriaController == null)
+                _categoriaController = new CategoriaController();
+
+            await AtualizarComboBoxCategorias();
         }
 
         #endregion
@@ -248,7 +250,19 @@ namespace EstoqueManager
         private void btnInserirCategoria_Click(object sender, EventArgs e)
         {
             FrmCategoriasCadastro cadastroCategoria = new FrmCategoriasCadastro();
+
+            cadastroCategoria.CategoriasAlteradas += async (s, args) =>
+            {
+                await AtualizarComboBoxCategorias();
+            };
+
             cadastroCategoria.Show();
+        }
+
+        private async Task AtualizarComboBoxCategorias()
+        {
+            var categorias = await _categoriaController.ObterCategorias();
+            cbCategoria = ConfiguracoesComboBox.ConfiguracoesComboboxCategoria(cbCategoria, categorias.ToList());
         }
     }
 }
