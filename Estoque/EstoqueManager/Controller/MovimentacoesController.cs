@@ -2,6 +2,7 @@
 using EstoqueManager.Data.Repositories;
 using EstoqueManager.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace EstoqueManager.Controller
@@ -47,6 +48,11 @@ namespace EstoqueManager.Controller
             };
 
             await _movimentoRepository.RegistrarMovimento(movimento);
+        }
+
+        public async Task<IEnumerable<Movimentacoes>> ObterHistorico(int produtoId)
+        {
+            return await _movimentoRepository.ObterPorProduto(produtoId);
         }
     }
 }

@@ -32,9 +32,16 @@
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.pnBarraSuperior = new System.Windows.Forms.Panel();
             this.tlpTop = new System.Windows.Forms.TableLayoutPanel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.pnLatera = new System.Windows.Forms.Panel();
+            this.btnRelatorios = new System.Windows.Forms.Button();
+            this.btnSaida = new System.Windows.Forms.Button();
+            this.btnEntradas = new System.Windows.Forms.Button();
+            this.btnProdutos = new System.Windows.Forms.Button();
+            this.btnDashBoard = new System.Windows.Forms.Button();
             this.pnControles = new System.Windows.Forms.Panel();
+            this.btnInserirCategoria = new System.Windows.Forms.Button();
             this.btnNovoProduto = new System.Windows.Forms.Button();
             this.lbCategoria = new System.Windows.Forms.Label();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
@@ -42,19 +49,12 @@
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.lbQuantidade = new System.Windows.Forms.Label();
+            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnProcurar = new System.Windows.Forms.Button();
             this.txtProdutos = new System.Windows.Forms.TextBox();
             this.pnDataGrid = new System.Windows.Forms.Panel();
             this.dgvRegistros = new System.Windows.Forms.DataGridView();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnRelatorios = new System.Windows.Forms.Button();
-            this.btnSaida = new System.Windows.Forms.Button();
-            this.btnEntradas = new System.Windows.Forms.Button();
-            this.btnProdutos = new System.Windows.Forms.Button();
-            this.btnDashBoard = new System.Windows.Forms.Button();
-            this.btnInserirCategoria = new System.Windows.Forms.Button();
-            this.btnAdicionar = new System.Windows.Forms.Button();
-            this.btnProcurar = new System.Windows.Forms.Button();
             this.tlpPrincipal.SuspendLayout();
             this.pnBarraSuperior.SuspendLayout();
             this.tlpTop.SuspendLayout();
@@ -104,7 +104,7 @@
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tlpTop.Controls.Add(this.btnClose, 5, 0);
             this.tlpTop.Controls.Add(this.lbTitulo, 1, 0);
             this.tlpTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -115,6 +115,19 @@
             this.tlpTop.Size = new System.Drawing.Size(887, 34);
             this.tlpTop.TabIndex = 0;
             // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::EstoqueManager.Properties.Resources.close;
+            this.btnClose.Location = new System.Drawing.Point(837, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(24, 27);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
@@ -123,7 +136,7 @@
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
             this.lbTitulo.Location = new System.Drawing.Point(5, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(279, 34);
+            this.lbTitulo.Size = new System.Drawing.Size(278, 34);
             this.lbTitulo.TabIndex = 1;
             this.lbTitulo.Text = "Gerenciamento de estoque";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,6 +155,93 @@
             this.tlpPrincipal.SetRowSpan(this.pnLatera, 2);
             this.pnLatera.Size = new System.Drawing.Size(198, 655);
             this.pnLatera.TabIndex = 1;
+            // 
+            // btnRelatorios
+            // 
+            this.btnRelatorios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRelatorios.FlatAppearance.BorderSize = 0;
+            this.btnRelatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
+            this.btnRelatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
+            this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorios.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorios.Image = global::EstoqueManager.Properties.Resources.Relatorios;
+            this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRelatorios.Location = new System.Drawing.Point(16, 208);
+            this.btnRelatorios.Name = "btnRelatorios";
+            this.btnRelatorios.Size = new System.Drawing.Size(167, 40);
+            this.btnRelatorios.TabIndex = 4;
+            this.btnRelatorios.Text = "Relatórios";
+            this.btnRelatorios.UseVisualStyleBackColor = true;
+            // 
+            // btnSaida
+            // 
+            this.btnSaida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaida.FlatAppearance.BorderSize = 0;
+            this.btnSaida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
+            this.btnSaida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
+            this.btnSaida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaida.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaida.Image = global::EstoqueManager.Properties.Resources.Saida;
+            this.btnSaida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaida.Location = new System.Drawing.Point(16, 162);
+            this.btnSaida.Name = "btnSaida";
+            this.btnSaida.Size = new System.Drawing.Size(167, 40);
+            this.btnSaida.TabIndex = 3;
+            this.btnSaida.Text = "Saidas";
+            this.btnSaida.UseVisualStyleBackColor = true;
+            this.btnSaida.Click += new System.EventHandler(this.btnSaida_Click);
+            // 
+            // btnEntradas
+            // 
+            this.btnEntradas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEntradas.FlatAppearance.BorderSize = 0;
+            this.btnEntradas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
+            this.btnEntradas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
+            this.btnEntradas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntradas.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntradas.Image = global::EstoqueManager.Properties.Resources.Entrada;
+            this.btnEntradas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEntradas.Location = new System.Drawing.Point(16, 116);
+            this.btnEntradas.Name = "btnEntradas";
+            this.btnEntradas.Size = new System.Drawing.Size(167, 40);
+            this.btnEntradas.TabIndex = 2;
+            this.btnEntradas.Text = "Entradas";
+            this.btnEntradas.UseVisualStyleBackColor = true;
+            this.btnEntradas.Click += new System.EventHandler(this.btnEntradas_Click);
+            // 
+            // btnProdutos
+            // 
+            this.btnProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProdutos.FlatAppearance.BorderSize = 0;
+            this.btnProdutos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
+            this.btnProdutos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
+            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdutos.Image = global::EstoqueManager.Properties.Resources.Products;
+            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProdutos.Location = new System.Drawing.Point(16, 70);
+            this.btnProdutos.Name = "btnProdutos";
+            this.btnProdutos.Size = new System.Drawing.Size(167, 40);
+            this.btnProdutos.TabIndex = 1;
+            this.btnProdutos.Text = "Produtos";
+            this.btnProdutos.UseVisualStyleBackColor = true;
+            // 
+            // btnDashBoard
+            // 
+            this.btnDashBoard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDashBoard.FlatAppearance.BorderSize = 0;
+            this.btnDashBoard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
+            this.btnDashBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
+            this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashBoard.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashBoard.Image = global::EstoqueManager.Properties.Resources.Dashboard;
+            this.btnDashBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashBoard.Location = new System.Drawing.Point(16, 24);
+            this.btnDashBoard.Name = "btnDashBoard";
+            this.btnDashBoard.Size = new System.Drawing.Size(167, 40);
+            this.btnDashBoard.TabIndex = 0;
+            this.btnDashBoard.Text = "Dashboard";
+            this.btnDashBoard.UseVisualStyleBackColor = true;
             // 
             // pnControles
             // 
@@ -162,6 +262,21 @@
             this.pnControles.Name = "pnControles";
             this.pnControles.Size = new System.Drawing.Size(683, 110);
             this.pnControles.TabIndex = 2;
+            // 
+            // btnInserirCategoria
+            // 
+            this.btnInserirCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInserirCategoria.FlatAppearance.BorderSize = 0;
+            this.btnInserirCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnInserirCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnInserirCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserirCategoria.Image = global::EstoqueManager.Properties.Resources.Mais__2_;
+            this.btnInserirCategoria.Location = new System.Drawing.Point(533, 29);
+            this.btnInserirCategoria.Name = "btnInserirCategoria";
+            this.btnInserirCategoria.Size = new System.Drawing.Size(30, 30);
+            this.btnInserirCategoria.TabIndex = 12;
+            this.btnInserirCategoria.UseVisualStyleBackColor = true;
+            this.btnInserirCategoria.Click += new System.EventHandler(this.btnInserirCategoria_Click);
             // 
             // btnNovoProduto
             // 
@@ -237,150 +352,6 @@
             this.lbQuantidade.TabIndex = 5;
             this.lbQuantidade.Text = "Qte.:";
             // 
-            // txtProdutos
-            // 
-            this.txtProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtProdutos.Location = new System.Drawing.Point(107, 5);
-            this.txtProdutos.Name = "txtProdutos";
-            this.txtProdutos.Size = new System.Drawing.Size(420, 23);
-            this.txtProdutos.TabIndex = 0;
-            this.txtProdutos.TextChanged += new System.EventHandler(this.txtProdutos_TextChanged);
-            // 
-            // pnDataGrid
-            // 
-            this.pnDataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
-            this.pnDataGrid.Controls.Add(this.dgvRegistros);
-            this.pnDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDataGrid.Location = new System.Drawing.Point(207, 159);
-            this.pnDataGrid.Name = "pnDataGrid";
-            this.pnDataGrid.Size = new System.Drawing.Size(683, 539);
-            this.pnDataGrid.TabIndex = 3;
-            // 
-            // dgvRegistros
-            // 
-            this.dgvRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRegistros.Location = new System.Drawing.Point(0, 0);
-            this.dgvRegistros.Name = "dgvRegistros";
-            this.dgvRegistros.Size = new System.Drawing.Size(683, 539);
-            this.dgvRegistros.TabIndex = 0;
-            this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
-            this.dgvRegistros.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellEndEdit);
-            this.dgvRegistros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRegistros_KeyDown);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::EstoqueManager.Properties.Resources.close;
-            this.btnClose.Location = new System.Drawing.Point(838, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(24, 27);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnRelatorios
-            // 
-            this.btnRelatorios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRelatorios.FlatAppearance.BorderSize = 0;
-            this.btnRelatorios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
-            this.btnRelatorios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
-            this.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorios.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRelatorios.Image = global::EstoqueManager.Properties.Resources.Relatorios;
-            this.btnRelatorios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatorios.Location = new System.Drawing.Point(16, 208);
-            this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(167, 40);
-            this.btnRelatorios.TabIndex = 4;
-            this.btnRelatorios.Text = "Relatórios";
-            this.btnRelatorios.UseVisualStyleBackColor = true;
-            // 
-            // btnSaida
-            // 
-            this.btnSaida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaida.FlatAppearance.BorderSize = 0;
-            this.btnSaida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
-            this.btnSaida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
-            this.btnSaida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaida.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaida.Image = global::EstoqueManager.Properties.Resources.Saida;
-            this.btnSaida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaida.Location = new System.Drawing.Point(16, 162);
-            this.btnSaida.Name = "btnSaida";
-            this.btnSaida.Size = new System.Drawing.Size(167, 40);
-            this.btnSaida.TabIndex = 3;
-            this.btnSaida.Text = "Saidas";
-            this.btnSaida.UseVisualStyleBackColor = true;
-            // 
-            // btnEntradas
-            // 
-            this.btnEntradas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEntradas.FlatAppearance.BorderSize = 0;
-            this.btnEntradas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
-            this.btnEntradas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
-            this.btnEntradas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntradas.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntradas.Image = global::EstoqueManager.Properties.Resources.Entrada;
-            this.btnEntradas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEntradas.Location = new System.Drawing.Point(16, 116);
-            this.btnEntradas.Name = "btnEntradas";
-            this.btnEntradas.Size = new System.Drawing.Size(167, 40);
-            this.btnEntradas.TabIndex = 2;
-            this.btnEntradas.Text = "Entradas";
-            this.btnEntradas.UseVisualStyleBackColor = true;
-            // 
-            // btnProdutos
-            // 
-            this.btnProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProdutos.FlatAppearance.BorderSize = 0;
-            this.btnProdutos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
-            this.btnProdutos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
-            this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdutos.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProdutos.Image = global::EstoqueManager.Properties.Resources.Products;
-            this.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProdutos.Location = new System.Drawing.Point(16, 70);
-            this.btnProdutos.Name = "btnProdutos";
-            this.btnProdutos.Size = new System.Drawing.Size(167, 40);
-            this.btnProdutos.TabIndex = 1;
-            this.btnProdutos.Text = "Produtos";
-            this.btnProdutos.UseVisualStyleBackColor = true;
-            // 
-            // btnDashBoard
-            // 
-            this.btnDashBoard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDashBoard.FlatAppearance.BorderSize = 0;
-            this.btnDashBoard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
-            this.btnDashBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
-            this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashBoard.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashBoard.Image = global::EstoqueManager.Properties.Resources.Dashboard;
-            this.btnDashBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashBoard.Location = new System.Drawing.Point(16, 24);
-            this.btnDashBoard.Name = "btnDashBoard";
-            this.btnDashBoard.Size = new System.Drawing.Size(167, 40);
-            this.btnDashBoard.TabIndex = 0;
-            this.btnDashBoard.Text = "Dashboard";
-            this.btnDashBoard.UseVisualStyleBackColor = true;
-            // 
-            // btnInserirCategoria
-            // 
-            this.btnInserirCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInserirCategoria.FlatAppearance.BorderSize = 0;
-            this.btnInserirCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnInserirCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnInserirCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInserirCategoria.Image = global::EstoqueManager.Properties.Resources.Mais__2_;
-            this.btnInserirCategoria.Location = new System.Drawing.Point(533, 29);
-            this.btnInserirCategoria.Name = "btnInserirCategoria";
-            this.btnInserirCategoria.Size = new System.Drawing.Size(30, 30);
-            this.btnInserirCategoria.TabIndex = 12;
-            this.btnInserirCategoria.UseVisualStyleBackColor = true;
-            this.btnInserirCategoria.Click += new System.EventHandler(this.btnInserirCategoria_Click);
-            // 
             // btnAdicionar
             // 
             this.btnAdicionar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -414,6 +385,37 @@
             this.btnProcurar.TabIndex = 1;
             this.btnProcurar.UseVisualStyleBackColor = true;
             this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
+            // 
+            // txtProdutos
+            // 
+            this.txtProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProdutos.Location = new System.Drawing.Point(107, 5);
+            this.txtProdutos.Name = "txtProdutos";
+            this.txtProdutos.Size = new System.Drawing.Size(420, 23);
+            this.txtProdutos.TabIndex = 0;
+            this.txtProdutos.TextChanged += new System.EventHandler(this.txtProdutos_TextChanged);
+            // 
+            // pnDataGrid
+            // 
+            this.pnDataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
+            this.pnDataGrid.Controls.Add(this.dgvRegistros);
+            this.pnDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnDataGrid.Location = new System.Drawing.Point(207, 159);
+            this.pnDataGrid.Name = "pnDataGrid";
+            this.pnDataGrid.Size = new System.Drawing.Size(683, 539);
+            this.pnDataGrid.TabIndex = 3;
+            // 
+            // dgvRegistros
+            // 
+            this.dgvRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRegistros.Location = new System.Drawing.Point(0, 0);
+            this.dgvRegistros.Name = "dgvRegistros";
+            this.dgvRegistros.Size = new System.Drawing.Size(683, 539);
+            this.dgvRegistros.TabIndex = 0;
+            this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
+            this.dgvRegistros.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellEndEdit);
+            this.dgvRegistros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRegistros_KeyDown);
             // 
             // MainForm
             // 

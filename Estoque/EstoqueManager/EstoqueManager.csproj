@@ -81,6 +81,12 @@
     <Compile Include="UI\FrmCategoriasCadastro.Designer.cs">
       <DependentUpon>FrmCategoriasCadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FrmMovimentacoesEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmMovimentacoesEstoque.Designer.cs">
+      <DependentUpon>FrmMovimentacoesEstoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="UI\FrmCategoriasCadastro.resx">
       <DependentUpon>FrmCategoriasCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmMovimentacoesEstoque.resx">
+      <DependentUpon>FrmMovimentacoesEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

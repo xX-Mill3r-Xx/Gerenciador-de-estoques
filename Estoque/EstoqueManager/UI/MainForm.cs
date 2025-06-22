@@ -264,5 +264,21 @@ namespace EstoqueManager
             var categorias = await _categoriaController.ObterCategorias();
             cbCategoria = ConfiguracoesComboBox.ConfiguracoesComboboxCategoria(cbCategoria, categorias.ToList());
         }
+
+        private void ChamarTelaMovimentacoes()
+        {
+            FrmMovimentacoesEstoque frmMovimentacoesEstoque = new FrmMovimentacoesEstoque();
+            frmMovimentacoesEstoque.Show();
+        }
+
+        private void btnEntradas_Click(object sender, EventArgs e)
+        {
+            ChamarTelaMovimentacoes();
+        }
+
+        private void btnSaida_Click(object sender, EventArgs e)
+        {
+            ChamarTelaMovimentacoes();
+        }
     }
 }
