@@ -72,6 +72,7 @@
     <Compile Include="Data\Services\IProdutoRepository.cs" />
     <Compile Include="Data\StringConnection.cs" />
     <Compile Include="Models\Categorias.cs" />
+    <Compile Include="Models\Configuracoes\ConfiguracaoBD.cs" />
     <Compile Include="Models\Movimentacoes.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Usuarios.cs" />
@@ -80,6 +81,12 @@
     </Compile>
     <Compile Include="UI\FrmCategoriasCadastro.Designer.cs">
       <DependentUpon>FrmCategoriasCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmConfiguracaoDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmConfiguracaoDataBase.Designer.cs">
+      <DependentUpon>FrmConfiguracaoDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmMovimentacoesEstoque.cs">
       <SubType>Form</SubType>
@@ -97,6 +104,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="UI\FrmCategoriasCadastro.resx">
       <DependentUpon>FrmCategoriasCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmConfiguracaoDataBase.resx">
+      <DependentUpon>FrmConfiguracaoDataBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmMovimentacoesEstoque.resx">
       <DependentUpon>FrmMovimentacoesEstoque.cs</DependentUpon>
@@ -163,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Scripts\01\CriacaoInicial.txt" />
+    <None Include="Resources\cadeado fechado.png" />
     <None Include="Resources\Buscar32x32.png" />
     <None Include="Resources\Deletar.png" />
     <None Include="Resources\Salvar.png" />
