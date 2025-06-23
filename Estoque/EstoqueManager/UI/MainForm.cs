@@ -265,20 +265,26 @@ namespace EstoqueManager
             cbCategoria = ConfiguracoesComboBox.ConfiguracoesComboboxCategoria(cbCategoria, categorias.ToList());
         }
 
-        private void ChamarTelaMovimentacoes()
+        private void ChamarTelaMovimentacoes(char tipo)
         {
-            FrmMovimentacoesEstoque frmMovimentacoesEstoque = new FrmMovimentacoesEstoque();
+            FrmMovimentacoesEstoque frmMovimentacoesEstoque = new FrmMovimentacoesEstoque(tipo);
+
+            frmMovimentacoesEstoque.EstoqueAlterado += async (s, args) =>
+            {
+                await BuscarTodosProdutos();
+            };
+
             frmMovimentacoesEstoque.Show();
         }
 
         private void btnEntradas_Click(object sender, EventArgs e)
         {
-            ChamarTelaMovimentacoes();
+            ChamarTelaMovimentacoes('E');
         }
 
         private void btnSaida_Click(object sender, EventArgs e)
         {
-            ChamarTelaMovimentacoes();
+            ChamarTelaMovimentacoes('S');
         }
     }
 }

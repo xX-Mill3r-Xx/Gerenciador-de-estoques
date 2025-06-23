@@ -19,23 +19,43 @@ namespace EstoqueManager.UI
 
         private ProdutoController _produtoController;
         private MovimentacoesController _movimentacoesController;
+        private readonly char _tipoMovimentacao;
+
+
+        #endregion
+
+        #region Events
+
+        public event EventHandler EstoqueAlterado;
 
         #endregion
 
         #region Constructors
 
-        public FrmMovimentacoesEstoque()
+        public FrmMovimentacoesEstoque(char tipoMovimentacao)
         {
             InitializeComponent();
 
             _produtoController = new ProdutoController();
             _movimentacoesController = new MovimentacoesController();
+            _tipoMovimentacao = tipoMovimentacao;
         }
 
         #endregion
 
         private async void FrmMovimentacoesEstoque_Load(object sender, EventArgs e)
         {
+            if (_tipoMovimentacao == 'E')
+            {
+                rbEntrada.Checked = true;
+                rbSaida.Enabled = false;
+            }
+            else if (_tipoMovimentacao == 'S')
+            {
+                rbSaida.Checked = true;
+                rbEntrada.Enabled = false;
+            }
+
             var produtos = await _produtoController.ObterProdutos();
             cbProdutos.DataSource = produtos.ToList();
             cbProdutos.DisplayMember = "Nome";
@@ -73,7 +93,10 @@ namespace EstoqueManager.UI
                 await _movimentacoesController.RegistrarSaida(produto.Id, quantidade);
 
             MessageBox.Show("Movimentação registrada com sucesso!");
+            EstoqueAlterado?.Invoke(this, EventArgs.Empty);
             await CarregarHistorico(produto.Id);
+            await Task.Delay(1000);
+            Close();
         }
     }
 }
