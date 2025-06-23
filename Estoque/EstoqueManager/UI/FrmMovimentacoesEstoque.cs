@@ -1,4 +1,5 @@
-﻿using EstoqueManager.Controller;
+﻿using EstoqueManager.Configuracoes;
+using EstoqueManager.Controller;
 using EstoqueManager.Models;
 using System;
 using System.Collections.Generic;
@@ -53,16 +54,7 @@ namespace EstoqueManager.UI
             var historico = await _movimentacoesController.ObterHistorico(produtoId)
                 ?? new List<Movimentacoes>();
             dgvregristros.DataSource = historico.ToList();
-
-            if (dgvregristros.Columns.Count > 0)
-            {
-                dgvregristros.Columns["ProdutoId"].Visible = false;
-                dgvregristros.Columns["Id"].Visible = false;
-                dgvregristros.Columns["Tipo"].HeaderText = "Tipo";
-                dgvregristros.Columns["Quantidade"].HeaderText = "Qtd.";
-                dgvregristros.Columns["DataMovimento"].HeaderText = "Data";
-                dgvregristros.Columns["DataMovimento"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
-            }
+            ConfiguracoesDataGridView.ConfiguracoesDgvHistorico(dgvregristros);
         }
 
         private async void btnConfirmar_Click(object sender, EventArgs e)

@@ -52,6 +52,23 @@ namespace EstoqueManager.Configuracoes
             return dgvRegistros;
         }
 
+        public static DataGridView ConfiguracoesDgvHistorico(DataGridView dgvRegistros)
+        {
+            if (dgvRegistros.Columns.Count > 0)
+            {
+                dgvRegistros.Columns["ProdutoId"].Visible = false;
+                dgvRegistros.Columns["Id"].Visible = false;
+                dgvRegistros.Columns["Tipo"].HeaderText = "Tipo";
+                dgvRegistros.Columns["Quantidade"].HeaderText = "Qtd.";
+                dgvRegistros.Columns["DataMovimento"].HeaderText = "Data";
+                dgvRegistros.Columns["DataMovimento"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+
+                dgvRegistros = EstilizacaoDataGrid(dgvRegistros);
+            }
+
+            return dgvRegistros;
+        }
+
         public static void AdicionarColunaExcluir(DataGridView dgvRegistros)
         {
             if (!dgvRegistros.Columns.Contains("Excluir"))
