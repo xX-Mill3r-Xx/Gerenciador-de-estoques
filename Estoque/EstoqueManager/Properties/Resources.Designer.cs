@@ -63,6 +63,16 @@ namespace EstoqueManager.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3890939_chart_diagram_pie_piechart_sector_icon {
+            get {
+                object obj = ResourceManager.GetObject("_3890939_chart_diagram_pie_piechart_sector_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Buscar32x32 {
             get {
                 object obj = ResourceManager.GetObject("Buscar32x32", resourceCulture);
