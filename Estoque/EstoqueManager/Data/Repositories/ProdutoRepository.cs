@@ -54,6 +54,35 @@ namespace EstoqueManager.Data.Repositories
             }
         }
 
+        public async Task<IEnumerable<Produto>> ObterPorCategoria(int categoriaId)
+        {
+            try
+            {
+                const string sql = @"SELECT 
+	                                    produto.Id, 
+	                                    produto.Nome, 
+	                                    produto.Quantidade, 
+	                                    produto.Preco, 
+	                                    produto.CategoriaId,
+	                                    categoria.Nome AS Categoria
+                                    FROM Produtos produto
+	                                    JOIN Categorias categoria ON produto.CategoriaId = categoria.Id
+                                    WHERE produto.CategoriaId = @CategoriaId";
+
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+                    var produtos = await connection.QueryAsync<Produto>(sql, new { CategoriaId = categoriaId });
+                    return produtos ?? Enumerable.Empty<Produto>();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return Enumerable.Empty<Produto>();
+            }
+        }
+
         public async Task<Produto> ObterPorId(int id)
         {
             try

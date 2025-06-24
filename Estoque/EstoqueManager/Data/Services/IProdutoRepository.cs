@@ -6,6 +6,7 @@ namespace EstoqueManager.Data.Services
     public interface IProdutoRepository<T>
     {
         Task<IEnumerable<T>> ObterTodos();
+        Task<IEnumerable<T>> ObterPorCategoria(int categoriaId);
         Task<T> ObterPorId(int id);
         Task<T> ObterPorNome(string nome);
         Task<T> Inserir(T entity);

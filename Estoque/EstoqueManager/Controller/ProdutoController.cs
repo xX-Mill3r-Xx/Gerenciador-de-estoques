@@ -28,6 +28,11 @@ namespace EstoqueManager.Controller
             return await _produtoRepository.ObterTodos();
         }
 
+        public async Task<IEnumerable<Produto>> ObterProdutosPorCategoria(int categoriaId)
+        {
+            return await _produtoRepository.ObterPorCategoria(categoriaId);
+        }
+
         public async Task<Produto> ObterProdutosPorId(int id)
         {
             return await _produtoRepository.ObterPorId(id);

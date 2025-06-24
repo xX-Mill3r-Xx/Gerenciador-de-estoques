@@ -116,7 +116,14 @@ namespace EstoqueManager
         private async Task Buscar()
         {
             string termo = txtProdutos.Text.Trim();
+            var categoriaSelecionada = cbCategoria.SelectedItem as Categorias;
 
+            if (categoriaSelecionada != null)
+            {
+                var produtos = await _produtoController.ObterProdutosPorCategoria(categoriaSelecionada.Id);
+                dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, produtos.ToList());
+                return;
+            }
             if (string.IsNullOrWhiteSpace(termo))
             {
                 var produtos = await _produtoController.ObterProdutos();
