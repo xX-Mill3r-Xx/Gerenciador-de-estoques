@@ -118,7 +118,7 @@ namespace EstoqueManager
             string termo = txtProdutos.Text.Trim();
             var categoriaSelecionada = cbCategoria.SelectedItem as Categorias;
 
-            if (categoriaSelecionada != null)
+            if (categoriaSelecionada != null && categoriaSelecionada.Id > 0)
             {
                 var produtos = await _produtoController.ObterProdutosPorCategoria(categoriaSelecionada.Id);
                 dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, produtos.ToList());

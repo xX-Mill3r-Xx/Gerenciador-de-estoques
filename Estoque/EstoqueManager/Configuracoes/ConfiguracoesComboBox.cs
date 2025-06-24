@@ -9,7 +9,14 @@ namespace EstoqueManager.Configuracoes
         public static ComboBox ConfiguracoesComboboxCategoria(ComboBox cbCategoria, List<Categorias> categorias)
         {
             cbCategoria.Cursor = Cursors.Hand;
-            cbCategoria.DataSource = categorias;
+
+            var linhaEmBranco = new List<Categorias>
+            {
+                new Categorias { Id = 0, Nome = string.Empty }
+            };
+            linhaEmBranco.AddRange(categorias);
+
+            cbCategoria.DataSource = linhaEmBranco;
             cbCategoria.DisplayMember = "Nome";
             cbCategoria.ValueMember = "Id";
             cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
