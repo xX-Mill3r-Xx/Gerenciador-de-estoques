@@ -166,7 +166,9 @@ namespace EstoqueManager
 
         private async void dgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgvRegistros.Columns["Excluir"].Index && e.RowIndex >= 0)
+            if (dgvRegistros.Columns.Contains("Excluir") &&
+                e.ColumnIndex == dgvRegistros.Columns["Excluir"].Index 
+                && e.RowIndex >= 0)
             {
                 var produto = dgvRegistros.Rows[e.RowIndex].DataBoundItem as Produto;
                 if (produto != null) 
@@ -180,6 +182,7 @@ namespace EstoqueManager
                         {
                             MessageBox.Show("Produto excluido com sucesso","Sucesso!",MessageBoxButtons.OK, MessageBoxIcon.Information);
                             await BuscarTodosProdutos();
+                            ConfiguracoesDataGridView.AdicionarColunaExcluir(dgvRegistros);
                         }
                     }
                 }

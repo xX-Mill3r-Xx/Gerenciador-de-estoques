@@ -73,13 +73,17 @@ namespace EstoqueManager.Configuracoes
         {
             if (!dgvRegistros.Columns.Contains("Excluir"))
             {
-                var colunaExcluir = new DataGridViewImageColumn();
-                colunaExcluir.Name = "Excluir";
-                colunaExcluir.HeaderText = "Excluir";
-                colunaExcluir.Width = 35;
-                colunaExcluir.Image = Properties.Resources.Deletar;
-                colunaExcluir.ImageLayout = DataGridViewImageCellLayout.Zoom;
-                colunaExcluir.ToolTipText = "Excluir";
+                var colunaExcluir = new DataGridViewImageColumn
+                {
+                    Name = "Excluir",
+                    HeaderText = "Excluir",
+                    Width = 35,
+                    Image = Properties.Resources.Deletar,
+                    ImageLayout = DataGridViewImageCellLayout.Zoom,
+                    ToolTipText = "Excluir"
+                };
+
+                colunaExcluir.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 dgvRegistros.Columns.Add(colunaExcluir);
             }
