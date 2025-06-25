@@ -88,5 +88,36 @@ namespace EstoqueManager.Configuracoes
                 dgvRegistros.Columns.Add(colunaExcluir);
             }
         }
+
+        public static void AdicionarColunaBloqueada(DataGridView dgvRegistros, List<int> produtosBloqueados)
+        {
+            if (dgvRegistros.Columns.Contains("Excluir"))
+                dgvRegistros.Columns.Remove("Excluir");
+
+            var coluna = new DataGridViewImageColumn
+            {
+                Name = "Excluir",
+                HeaderText = "Excluir",
+                Width = 35,
+                ImageLayout = DataGridViewImageCellLayout.Zoom
+            };
+
+            dgvRegistros.Columns.Add(coluna);
+
+            foreach (DataGridViewRow linha in dgvRegistros.Rows)
+            {
+                var produto = linha.DataBoundItem as Produto;
+                if (produto != null && produtosBloqueados.Contains(produto.Id))
+                {
+                    linha.Cells["Excluir"].Value = Properties.Resources.Bloqueado;
+                    linha.Cells["Excluir"].ToolTipText = "Produto bloqueado para exclusão";
+                }
+                else
+                {
+                    linha.Cells["Excluir"].Value = Properties.Resources.Deletar;
+                    linha.Cells["Excluir"].ToolTipText = "Excluir produto";
+                }
+            }
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace EstoqueManager
         CategoriaController _categoriaController;
         private Produto _produtoEditado;
 
+        private List<int> _produtosBloqueados = new List<int>();
+
         #endregion
 
         #region Constructors
@@ -110,10 +112,14 @@ namespace EstoqueManager
 
         private async Task BuscarTodosProdutos()
         {
-            await Buscar();
+            var produtos = await Buscar();
+
+            await AtualizarListaProdutosBloqueados(produtos);
+            dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, produtos);
+            ConfiguracoesDataGridView.AdicionarColunaBloqueada(dgvRegistros, _produtosBloqueados);
         }
 
-        private async Task Buscar()
+        private async Task<List<Produto>> Buscar()
         {
             string termo = txtProdutos.Text.Trim();
             var categoriaSelecionada = cbCategoria.SelectedItem as Categorias;
@@ -122,28 +128,41 @@ namespace EstoqueManager
             {
                 var produtos = await _produtoController.ObterProdutosPorCategoria(categoriaSelecionada.Id);
                 dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, produtos.ToList());
-                return;
+                return produtos.ToList();
             }
             if (string.IsNullOrWhiteSpace(termo))
             {
                 var produtos = await _produtoController.ObterProdutos();
                 dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, produtos.ToList());
+                return produtos.ToList();
             }
             else if (int.TryParse(termo, out int id))
             {
                 var produto = await _produtoController.ObterProdutosPorId(id);
                 if (produto != null)
-                    dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, new List<Produto> { produto });
+                {
+                    var lista = new List<Produto> { produto };
+                    dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, lista);
+                    return lista;
+                }
                 else
-                    MessageBox.Show("Produto não encontrado pelo ID informado","Atenção",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                {
+                    MessageBox.Show("Produto não encontrado pelo ID informado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return new List<Produto>();
+                } 
             }
             else
             {
                 var produto = await _produtoController.ObterProdutosPorNome($"%{termo}%");
                 if (produto != null)
-                    dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, new List<Produto> { produto });
-                else
-                    MessageBox.Show("Produto com este nome não foi encontrado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                {
+                    var lista = new List<Produto> { produto };
+                    dgvRegistros = ConfiguracoesDataGridView.ConfiguracoesdgvRegistrosProdutos(dgvRegistros, lista);
+                    return lista;
+                }
+
+                MessageBox.Show("Produto com este nome não foi encontrado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return new List<Produto>();
             }
         }
 
@@ -241,6 +260,17 @@ namespace EstoqueManager
             }
 
             return true;
+        }
+
+        private async Task AtualizarListaProdutosBloqueados(IEnumerable<Produto> produtos)
+        {
+            _produtosBloqueados.Clear();
+            foreach (var produto in produtos) 
+            {
+                bool bloqueado = await _produtoController.ProdutoPossuiMovimentacoes(produto.Id);
+                if (bloqueado)
+                    _produtosBloqueados.Add(produto.Id);
+            }
         }
 
         private void btnNovoProduto_Click(object sender, EventArgs e)

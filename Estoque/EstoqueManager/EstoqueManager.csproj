@@ -173,6 +173,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Scripts\01\CriacaoInicial.txt" />
+    <None Include="Resources\Bloqueado.png" />
+    <None Include="Resources\Captura de tela 2025-06-25 195933.png" />
     <None Include="Resources\3890939_chart_diagram_pie_piechart_sector_icon.png" />
     <None Include="Resources\add52x52.png" />
     <None Include="Resources\cadeado fechado.png" />
