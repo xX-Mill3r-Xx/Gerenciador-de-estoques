@@ -57,5 +57,10 @@ namespace EstoqueManager.Controller
         {
             return await _produtoRepository.Deletar(id);
         }
+
+        public async Task<bool> ProdutoPossuiMovimentacoes(int produtoId)
+        {
+            return await _produtoRepository.PossuiMovimentacoes(produtoId);
+        }
     }
 }

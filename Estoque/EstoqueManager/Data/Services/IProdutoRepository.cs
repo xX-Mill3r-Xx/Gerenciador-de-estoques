@@ -12,5 +12,6 @@ namespace EstoqueManager.Data.Services
         Task<T> Inserir(T entity);
         Task<T> Atualizar(T entity);
         Task<T> Deletar(int id);
+        Task<bool> PossuiMovimentacoes(int produtoId);
     }
 }

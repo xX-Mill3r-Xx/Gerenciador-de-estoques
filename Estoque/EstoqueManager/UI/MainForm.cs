@@ -180,6 +180,9 @@ namespace EstoqueManager
                 var produto = dgvRegistros.Rows[e.RowIndex].DataBoundItem as Produto;
                 if (produto != null) 
                 {
+                    if (!await ValidaExclusaoDeProdutoMovimentado(produto.Id))
+                        return;
+
                     var confirma = MessageBox.Show($"Deseja realmente excluir o produto \"{produto.Nome}\"?",
                         "Confirmar?",MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (confirma == DialogResult.Yes)
@@ -209,6 +212,9 @@ namespace EstoqueManager
                 var produto = dgvRegistros.SelectedRows[0].DataBoundItem as Produto;
                 if (produto != null)
                 {
+                    if (!await ValidaExclusaoDeProdutoMovimentado(produto.Id))
+                        return;
+
                     var confirma = MessageBox.Show($"Deseja realmente excluir o produto \"{produto.Nome}\"?",
                         "Confirmar?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (confirma == DialogResult.Yes)
@@ -222,6 +228,19 @@ namespace EstoqueManager
                     }
                 }
             }
+        }
+
+        private async Task<bool> ValidaExclusaoDeProdutoMovimentado(int produtoId)
+        {
+            bool possuiMovimentacao = await _produtoController.ProdutoPossuiMovimentacoes(produtoId);
+            if (possuiMovimentacao)
+            {
+                MessageBox.Show("Este produto não pode ser excluido pois possui movimentações",
+                    "Ação não permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
 
         private void btnNovoProduto_Click(object sender, EventArgs e)

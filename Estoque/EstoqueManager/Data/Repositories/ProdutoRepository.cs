@@ -227,5 +227,25 @@ namespace EstoqueManager.Data.Repositories
                 return null;
             }
         }
+
+        public async Task<bool> PossuiMovimentacoes(int produtoId)
+        {
+            try
+            {
+                const string sql = "SELECT COUNT(*) FROM Movimentacoes WHERE ProdutoId = @ProdutoId";
+
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+                    int cout = await connection.ExecuteScalarAsync<int>(sql, new { ProdutoId = produtoId });
+                    return cout > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
     }
 }
