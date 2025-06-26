@@ -6,7 +6,6 @@ using EstoqueManager.UI;
 using EstoqueManager.Util;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,6 +46,7 @@ namespace EstoqueManager
         {
             toolTip = FuncaoToolTip.RetornaToolTip(btnAdicionar, Mensagens.Salvarproduto);
             toolTip = FuncaoToolTip.RetornaToolTip(btnClose, Mensagens.FecharAplicacao);
+            toolTip = FuncaoToolTip.RetornaToolTip(btnMaximizar, Mensagens.MaximizarAplicacao);
             toolTip = FuncaoToolTip.RetornaToolTip(btnInserirCategoria, Mensagens.NovaCategoria);
             toolTip = FuncaoToolTip.RetornaToolTip(btnProcurar, Mensagens.BuscarProdutos);
         }
@@ -81,6 +81,20 @@ namespace EstoqueManager
             Close();
         }
 
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+                btnMaximizar.Image = Properties.Resources.minimizar;
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+                btnMaximizar.Image = Properties.Resources.Redimensionar;
+            }
+        }
+
         private async void btnAdicionar_Click(object sender, EventArgs e)
         {
             try
@@ -90,7 +104,7 @@ namespace EstoqueManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Mensagens.ErroAoInserir(ex), 
+                MessageBox.Show(Mensagens.ErroAoInserir(ex),
                     Mensagens.Atencao, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -101,7 +115,7 @@ namespace EstoqueManager
                 !decimal.TryParse(txtPreco.Text, out decimal preco) ||
                 cbCategoria.SelectedValue == null)
             {
-                MessageBox.Show(Mensagens.VerifiqueOsDadosInseridos, 
+                MessageBox.Show(Mensagens.VerifiqueOsDadosInseridos,
                     Mensagens.Erro, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -126,7 +140,7 @@ namespace EstoqueManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Mensagens.ErroDeBusca(ex), 
+                MessageBox.Show(Mensagens.ErroDeBusca(ex),
                     Mensagens.Atencao, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -168,10 +182,10 @@ namespace EstoqueManager
                 }
                 else
                 {
-                    MessageBox.Show(Mensagens.NenhumRegistroLocalizado, 
+                    MessageBox.Show(Mensagens.NenhumRegistroLocalizado,
                         Mensagens.Atencao, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return new List<Produto>();
-                } 
+                }
             }
             else
             {
@@ -183,7 +197,7 @@ namespace EstoqueManager
                     return lista;
                 }
 
-                MessageBox.Show(Mensagens.NenhumRegistroLocalizado, 
+                MessageBox.Show(Mensagens.NenhumRegistroLocalizado,
                     Mensagens.Atencao, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return new List<Produto>();
             }
@@ -216,24 +230,24 @@ namespace EstoqueManager
         private async void dgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvRegistros.Columns.Contains("Excluir") &&
-                e.ColumnIndex == dgvRegistros.Columns["Excluir"].Index 
+                e.ColumnIndex == dgvRegistros.Columns["Excluir"].Index
                 && e.RowIndex >= 0)
             {
                 var produto = dgvRegistros.Rows[e.RowIndex].DataBoundItem as Produto;
-                if (produto != null) 
+                if (produto != null)
                 {
                     if (!await ValidaExclusaoDeProdutoMovimentado(produto.Id))
                         return;
 
                     var confirma = MessageBox.Show(Mensagens.ExcluirItem(produto.Nome),
-                        Mensagens.Confirma,MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        Mensagens.Confirma, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (confirma == DialogResult.Yes)
                     {
                         var resultado = await _produtoController.DeletarProduto(produto.Id);
                         if (resultado != null)
                         {
                             MessageBox.Show(Mensagens.ExclusaoCompleta(produto.Nome),
-                                Mensagens.Sucesso,MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Mensagens.Sucesso, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             await BuscarTodosProdutos();
                             ConfiguracoesDataGridView.AdicionarColunaExcluir(dgvRegistros);
                         }
@@ -265,7 +279,7 @@ namespace EstoqueManager
                         var resultado = await _produtoController.DeletarProduto(produto.Id);
                         if (resultado != null)
                         {
-                            MessageBox.Show(Mensagens.ExclusaoCompleta(produto.Nome), 
+                            MessageBox.Show(Mensagens.ExclusaoCompleta(produto.Nome),
                                 Mensagens.Sucesso, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             await BuscarTodosProdutos();
                         }
@@ -290,7 +304,7 @@ namespace EstoqueManager
         private async Task AtualizarListaProdutosBloqueados(IEnumerable<Produto> produtos)
         {
             _produtosBloqueados.Clear();
-            foreach (var produto in produtos) 
+            foreach (var produto in produtos)
             {
                 bool bloqueado = await _produtoController.ProdutoPossuiMovimentacoes(produto.Id);
                 if (bloqueado)
@@ -321,12 +335,12 @@ namespace EstoqueManager
                     var resultado = await _produtoController.AtualizarProduto(_produtoEditado);
                     if (resultado != null)
                     {
-                        MessageBox.Show(Mensagens.AtualizadoComSucesso, 
+                        MessageBox.Show(Mensagens.AtualizadoComSucesso,
                             Mensagens.Sucesso, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show(Mensagens.ErroDeAtualizacao, 
+                        MessageBox.Show(Mensagens.ErroDeAtualizacao,
                             Mensagens.Erro, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

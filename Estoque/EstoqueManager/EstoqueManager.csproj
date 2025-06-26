@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Scripts\01\CriacaoInicial.txt" />
+    <None Include="Resources\minimizar.png" />
     <None Include="Resources\configuracoes.png" />
     <None Include="Resources\Deletar.png" />
     <None Include="Resources\lock.png" />

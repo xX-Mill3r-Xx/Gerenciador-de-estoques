@@ -74,8 +74,8 @@
             // 
             this.tlpPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(78)))), ((int)(((byte)(94)))));
             this.tlpPrincipal.ColumnCount = 2;
-            this.tlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.70885F));
-            this.tlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.29115F));
+            this.tlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpPrincipal.Controls.Add(this.pnBarraSuperior, 0, 0);
             this.tlpPrincipal.Controls.Add(this.pnLatera, 0, 1);
             this.tlpPrincipal.Controls.Add(this.pnProdutos, 1, 1);
@@ -86,7 +86,6 @@
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 311F));
-            this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpPrincipal.Size = new System.Drawing.Size(893, 701);
             this.tlpPrincipal.TabIndex = 0;
             // 
@@ -148,7 +147,7 @@
             this.pnLatera.Location = new System.Drawing.Point(3, 47);
             this.pnLatera.Name = "pnLatera";
             this.tlpPrincipal.SetRowSpan(this.pnLatera, 2);
-            this.pnLatera.Size = new System.Drawing.Size(170, 651);
+            this.pnLatera.Size = new System.Drawing.Size(164, 651);
             this.pnLatera.TabIndex = 1;
             // 
             // pnControles
@@ -169,7 +168,7 @@
             this.pnControles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnControles.Location = new System.Drawing.Point(3, 3);
             this.pnControles.Name = "pnControles";
-            this.pnControles.Size = new System.Drawing.Size(705, 124);
+            this.pnControles.Size = new System.Drawing.Size(711, 144);
             this.pnControles.TabIndex = 2;
             // 
             // btnNovoProduto
@@ -265,9 +264,9 @@
             this.tlpProdutos.SetColumnSpan(this.pnDataGrid, 2);
             this.pnDataGrid.Controls.Add(this.dgvRegistros);
             this.pnDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDataGrid.Location = new System.Drawing.Point(3, 133);
+            this.pnDataGrid.Location = new System.Drawing.Point(3, 153);
             this.pnDataGrid.Name = "pnDataGrid";
-            this.pnDataGrid.Size = new System.Drawing.Size(705, 515);
+            this.pnDataGrid.Size = new System.Drawing.Size(711, 495);
             this.pnDataGrid.TabIndex = 3;
             // 
             // dgvRegistros
@@ -278,7 +277,7 @@
             this.dgvRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRegistros.Location = new System.Drawing.Point(0, 0);
             this.dgvRegistros.Name = "dgvRegistros";
-            this.dgvRegistros.Size = new System.Drawing.Size(705, 515);
+            this.dgvRegistros.Size = new System.Drawing.Size(711, 495);
             this.dgvRegistros.TabIndex = 0;
             this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
             this.dgvRegistros.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellEndEdit);
@@ -288,10 +287,10 @@
             // 
             this.pnProdutos.Controls.Add(this.tlpProdutos);
             this.pnProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnProdutos.Location = new System.Drawing.Point(179, 47);
+            this.pnProdutos.Location = new System.Drawing.Point(173, 47);
             this.pnProdutos.Name = "pnProdutos";
             this.tlpPrincipal.SetRowSpan(this.pnProdutos, 2);
-            this.pnProdutos.Size = new System.Drawing.Size(711, 651);
+            this.pnProdutos.Size = new System.Drawing.Size(717, 651);
             this.pnProdutos.TabIndex = 4;
             // 
             // tlpProdutos
@@ -305,9 +304,9 @@
             this.tlpProdutos.Location = new System.Drawing.Point(0, 0);
             this.tlpProdutos.Name = "tlpProdutos";
             this.tlpProdutos.RowCount = 2;
-            this.tlpProdutos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.96928F));
-            this.tlpProdutos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.03072F));
-            this.tlpProdutos.Size = new System.Drawing.Size(711, 651);
+            this.tlpProdutos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tlpProdutos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpProdutos.Size = new System.Drawing.Size(717, 651);
             this.tlpProdutos.TabIndex = 4;
             // 
             // btnMaximizar
@@ -322,6 +321,7 @@
             this.btnMaximizar.Size = new System.Drawing.Size(32, 32);
             this.btnMaximizar.TabIndex = 5;
             this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
             // 
             // btnClose
             // 
@@ -443,6 +443,7 @@
             // 
             // btnAdicionar
             // 
+            this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdicionar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAdicionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -451,7 +452,7 @@
             this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.Image = global::EstoqueManager.Properties.Resources.Salvar;
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAdicionar.Location = new System.Drawing.Point(618, 57);
+            this.btnAdicionar.Location = new System.Drawing.Point(618, 77);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(74, 57);
             this.btnAdicionar.TabIndex = 3;
@@ -477,6 +478,7 @@
             // 
             // btnConfig
             // 
+            this.btnConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfig.FlatAppearance.BorderSize = 0;
             this.btnConfig.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));

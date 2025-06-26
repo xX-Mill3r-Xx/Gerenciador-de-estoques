@@ -8,6 +8,7 @@ namespace EstoqueManager.Util
 
         public static string Salvarproduto => "Salvar produto";
         public static string FecharAplicacao => "Fechar Aplicação";
+        public static string MaximizarAplicacao => "Maximizar Aplicação";
         public static string NovaCategoria => "Nova categoria";
         public static string BuscarProdutos => "Buscar Produto(s)";
 
