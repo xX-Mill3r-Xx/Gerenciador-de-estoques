@@ -54,14 +54,14 @@ Um sistema desktop de gerenciamento de estoque desenvolvido em **C# com Windows 
    git clone https://github.com/xX-Mill3r-Xx/Gerenciador-de-estoques.git
    ```
 
-2. Crie a base de dados no SQL Server.
+2. Crie a base de dados no SQL Server. Deixei um script inicial para a base de dados na pasta Data/Scripts.
 
 3. Configure sua **string de conexão** no arquivo `StringConnection.cs`:
-   ```csharp
-   public static string Conexao() => "Data Source=.;Initial Catalog=EstoqueManagerDB;Integrated Security=True;";
-   ```
 
-4. Restaure os pacotes NuGet e execute o projeto via Visual Studio.
+4. Após rodar o script e criar a base de dados, ao iniciar o projeto você será automaticamente direcionado a uma tela de configuração para a base de dados.
+   Onde você pode informar o seu servidor e a base de dados criada para rodar este projeto.
+
+5. Restaure os pacotes NuGet e execute o projeto via Visual Studio.
 
 ## ✏️ Contribuindo
 Contribuições são muito bem-vindas! Abra uma _issue_ ou envie um _pull request_ com suas sugestões ou melhorias.
