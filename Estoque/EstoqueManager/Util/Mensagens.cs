@@ -1,5 +1,4 @@
-﻿using EstoqueManager.Models;
-using System;
+﻿using System;
 
 namespace EstoqueManager.Util
 {
