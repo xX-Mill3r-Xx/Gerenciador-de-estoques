@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using EstoqueManager.Data.Services;
 using EstoqueManager.Models;
+using EstoqueManager.Util;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -49,7 +50,8 @@ namespace EstoqueManager.Data.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Mensagens.ErroDeBusca(ex), 
+                    Mensagens.Erro, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return Enumerable.Empty<Produto>();
             }
         }
@@ -78,7 +80,8 @@ namespace EstoqueManager.Data.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Mensagens.ErroDeBusca(ex),
+                    Mensagens.Erro, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return Enumerable.Empty<Produto>();
             }
         }
@@ -107,7 +110,8 @@ namespace EstoqueManager.Data.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Mensagens.ErroDeBusca(ex),
+                    Mensagens.Erro, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
@@ -136,7 +140,8 @@ namespace EstoqueManager.Data.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Mensagens.ErroDeBusca(ex),
+                    Mensagens.Erro, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
@@ -167,7 +172,8 @@ namespace EstoqueManager.Data.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Mensagens.ErroAoInserir(ex), 
+                    Mensagens.Erro, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }

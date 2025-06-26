@@ -1,7 +1,9 @@
 ﻿using EstoqueManager.Configuracoes;
 using EstoqueManager.Controller;
+using EstoqueManager.Funcoes;
 using EstoqueManager.Models;
 using EstoqueManager.UI;
+using EstoqueManager.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,10 +44,10 @@ namespace EstoqueManager
 
         private void InicializarToolTips()
         {
-            toolTip.SetToolTip(btnAdicionar, "Salvar produto");
-            toolTip.SetToolTip(btnClose, "Fechar Aplicação");
-            toolTip.SetToolTip(btnInserirCategoria, "Nova categoria");
-            toolTip.SetToolTip(btnProcurar, "Buscar Produto(s)");
+            toolTip = FuncaoToolTip.RetornaToolTip(btnAdicionar, Mensagens.Salvarproduto);
+            toolTip = FuncaoToolTip.RetornaToolTip(btnClose, Mensagens.FecharAplicacao);
+            toolTip = FuncaoToolTip.RetornaToolTip(btnInserirCategoria, Mensagens.NovaCategoria);
+            toolTip = FuncaoToolTip.RetornaToolTip(btnProcurar, Mensagens.BuscarProdutos);
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
@@ -72,7 +74,8 @@ namespace EstoqueManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao inserir um produto: {ex.Message}", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Mensagens.ErroAoInserir(ex), 
+                    Mensagens.Atencao, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -82,7 +85,8 @@ namespace EstoqueManager
                 !decimal.TryParse(txtPreco.Text, out decimal preco) ||
                 cbCategoria.SelectedValue == null)
             {
-                MessageBox.Show("Verifique os dados inseridos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Mensagens.VerifiqueOsDadosInseridos, 
+                    Mensagens.Erro, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             Produto produto = new Produto
@@ -94,7 +98,7 @@ namespace EstoqueManager
             };
 
             await _produtoController.SalvarProduto(produto);
-            MessageBox.Show("Produto salvo com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Mensagens.ProdutoSalvoComSucesso, Mensagens.Aviso, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async void btnProcurar_Click(object sender, EventArgs e)
@@ -106,7 +110,8 @@ namespace EstoqueManager
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao buscar os produtos: {ex.Message}", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Mensagens.ErroDeBusca(ex), 
+                    Mensagens.Atencao, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -147,7 +152,8 @@ namespace EstoqueManager
                 }
                 else
                 {
-                    MessageBox.Show("Produto não encontrado pelo ID informado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Mensagens.NenhumRegistroLocalizado, 
+                        Mensagens.Atencao, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return new List<Produto>();
                 } 
             }
@@ -161,7 +167,8 @@ namespace EstoqueManager
                     return lista;
                 }
 
-                MessageBox.Show("Produto com este nome não foi encontrado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Mensagens.NenhumRegistroLocalizado, 
+                    Mensagens.Atencao, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return new List<Produto>();
             }
         }
@@ -202,14 +209,15 @@ namespace EstoqueManager
                     if (!await ValidaExclusaoDeProdutoMovimentado(produto.Id))
                         return;
 
-                    var confirma = MessageBox.Show($"Deseja realmente excluir o produto \"{produto.Nome}\"?",
-                        "Confirmar?",MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    var confirma = MessageBox.Show(Mensagens.ExcluirItem(produto.Nome),
+                        Mensagens.Confirma,MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (confirma == DialogResult.Yes)
                     {
                         var resultado = await _produtoController.DeletarProduto(produto.Id);
                         if (resultado != null)
                         {
-                            MessageBox.Show("Produto excluido com sucesso","Sucesso!",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(Mensagens.ExclusaoCompleta(produto.Nome),
+                                Mensagens.Sucesso,MessageBoxButtons.OK, MessageBoxIcon.Information);
                             await BuscarTodosProdutos();
                             ConfiguracoesDataGridView.AdicionarColunaExcluir(dgvRegistros);
                         }
@@ -234,14 +242,15 @@ namespace EstoqueManager
                     if (!await ValidaExclusaoDeProdutoMovimentado(produto.Id))
                         return;
 
-                    var confirma = MessageBox.Show($"Deseja realmente excluir o produto \"{produto.Nome}\"?",
-                        "Confirmar?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    var confirma = MessageBox.Show(Mensagens.ExcluirItem(produto.Nome),
+                        Mensagens.Confirma, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (confirma == DialogResult.Yes)
                     {
                         var resultado = await _produtoController.DeletarProduto(produto.Id);
                         if (resultado != null)
                         {
-                            MessageBox.Show("Produto excluido com sucesso", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(Mensagens.ExclusaoCompleta(produto.Nome), 
+                                Mensagens.Sucesso, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             await BuscarTodosProdutos();
                         }
                     }
@@ -254,8 +263,8 @@ namespace EstoqueManager
             bool possuiMovimentacao = await _produtoController.ProdutoPossuiMovimentacoes(produtoId);
             if (possuiMovimentacao)
             {
-                MessageBox.Show("Este produto não pode ser excluido pois possui movimentações",
-                    "Ação não permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Mensagens.ProdutoBloqueadoParaExclusao(produtoId),
+                    Mensagens.AcaoNaoPermitida, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -296,11 +305,13 @@ namespace EstoqueManager
                     var resultado = await _produtoController.AtualizarProduto(_produtoEditado);
                     if (resultado != null)
                     {
-                        MessageBox.Show("Produto atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(Mensagens.AtualizadoComSucesso, 
+                            Mensagens.Sucesso, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Erro ao atualizar produto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Mensagens.ErroDeAtualizacao, 
+                            Mensagens.Erro, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

@@ -64,6 +64,7 @@
     <Compile Include="Controller\MovimentacoesController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Data\DataBaseConnection.cs" />
+    <Compile Include="Funcoes\FuncaoToolTip.cs" />
     <Compile Include="Repositories\CategoriaRepository.cs" />
     <Compile Include="Repositories\MovimentacoesRepository.cs" />
     <Compile Include="Repositories\ProdutoRepository.cs" />
@@ -102,6 +103,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Mensagens.cs" />
     <EmbeddedResource Include="UI\FrmCategoriasCadastro.resx">
       <DependentUpon>FrmCategoriasCadastro.cs</DependentUpon>
     </EmbeddedResource>
