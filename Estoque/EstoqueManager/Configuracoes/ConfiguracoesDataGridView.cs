@@ -35,6 +35,29 @@ namespace EstoqueManager.Configuracoes
             return dgvRegistros;
         }
 
+        private static void InformaEstoqueMinimo(DataGridView dgvRegistros)
+        {
+            foreach (DataGridViewRow linha in dgvRegistros.Rows)
+            {
+                var produto = linha.DataBoundItem as Produto;
+                if (produto != null)
+                {
+                    if (produto.Quantidade <= 0)
+                    {
+                        linha.DefaultCellStyle.BackColor = Color.FromArgb(255, 60, 60);
+                        linha.DefaultCellStyle.ForeColor = Color.White;
+                        linha.Cells["Quantidade"].ToolTipText = "Produto com estoque zerado ou negativo";
+                    }
+                    else if (produto.Quantidade < 10)
+                    {
+                        linha.DefaultCellStyle.BackColor = Color.FromArgb(255, 192, 0);
+                        linha.DefaultCellStyle.ForeColor = Color.Black;
+                        linha.Cells["Quantidade"].ToolTipText = "Produto com estoque abaixo do nivel mínimo (10 unidades)";
+                    }
+                }
+            }
+        }
+
         #endregion
 
         public static DataGridView ConfiguracoesdgvRegistrosProdutos(DataGridView dgvRegistros, List<Produto> produtos)
@@ -42,6 +65,7 @@ namespace EstoqueManager.Configuracoes
             dgvRegistros.DataSource = produtos.ToList();
             dgvRegistros = EstilizacaoDataGrid(dgvRegistros);
             dgvRegistros.Columns["Preco"].DefaultCellStyle.Format = "N2";
+            InformaEstoqueMinimo(dgvRegistros);
             return dgvRegistros;
         }
 
