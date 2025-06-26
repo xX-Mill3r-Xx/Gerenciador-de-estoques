@@ -6,6 +6,7 @@ using EstoqueManager.UI;
 using EstoqueManager.Util;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -56,6 +57,21 @@ namespace EstoqueManager
                 _categoriaController = new CategoriaController();
 
             await AtualizarComboBoxCategorias();
+            PainelDesabilitado(pnProdutos);
+        }
+
+        private Panel PainelDesabilitado(Panel pn)
+        {
+            pn.Visible = false;
+            pn.Enabled = false;
+            return pn;
+        }
+
+        private Panel PainelHabilitado(Panel pn)
+        {
+            pn.Visible = true;
+            pn.Enabled = true;
+            return pn;
         }
 
         #endregion
@@ -355,6 +371,16 @@ namespace EstoqueManager
         private void btnSaida_Click(object sender, EventArgs e)
         {
             ChamarTelaMovimentacoes('S');
+        }
+
+        private void btnDashBoard_Click(object sender, EventArgs e)
+        {
+            PainelDesabilitado(pnProdutos);
+        }
+
+        private void btnProdutos_Click(object sender, EventArgs e)
+        {
+            PainelHabilitado(pnProdutos);
         }
     }
 }
