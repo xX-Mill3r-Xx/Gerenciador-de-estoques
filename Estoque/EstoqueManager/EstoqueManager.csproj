@@ -141,9 +141,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\close.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Dashboard.png" />
   </ItemGroup>
   <ItemGroup>
@@ -159,9 +156,6 @@
     <None Include="Resources\Entrada.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Procurar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Menos.png" />
   </ItemGroup>
   <ItemGroup>
@@ -175,13 +169,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Scripts\01\CriacaoInicial.txt" />
+    <None Include="Resources\configuracoes.png" />
+    <None Include="Resources\Deletar.png" />
+    <None Include="Resources\lock.png" />
+    <None Include="Resources\adicionar.png" />
+    <None Include="Resources\procurar.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\Redimensionar.png" />
     <None Include="Resources\Bloqueado.png" />
     <None Include="Resources\Captura de tela 2025-06-25 195933.png" />
     <None Include="Resources\3890939_chart_diagram_pie_piechart_sector_icon.png" />
     <None Include="Resources\add52x52.png" />
     <None Include="Resources\cadeado fechado.png" />
     <None Include="Resources\Buscar32x32.png" />
-    <None Include="Resources\Deletar.png" />
     <None Include="Resources\Salvar.png" />
     <None Include="Resources\lixeira.png" />
   </ItemGroup>

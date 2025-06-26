@@ -32,16 +32,9 @@
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.pnBarraSuperior = new System.Windows.Forms.Panel();
             this.tlpTop = new System.Windows.Forms.TableLayoutPanel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.pnLatera = new System.Windows.Forms.Panel();
-            this.btnRelatorios = new System.Windows.Forms.Button();
-            this.btnSaida = new System.Windows.Forms.Button();
-            this.btnEntradas = new System.Windows.Forms.Button();
-            this.btnProdutos = new System.Windows.Forms.Button();
-            this.btnDashBoard = new System.Windows.Forms.Button();
             this.pnControles = new System.Windows.Forms.Panel();
-            this.btnInserirCategoria = new System.Windows.Forms.Button();
             this.btnNovoProduto = new System.Windows.Forms.Button();
             this.lbCategoria = new System.Windows.Forms.Label();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
@@ -49,14 +42,23 @@
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.lbQuantidade = new System.Windows.Forms.Label();
-            this.btnAdicionar = new System.Windows.Forms.Button();
-            this.btnProcurar = new System.Windows.Forms.Button();
             this.txtProdutos = new System.Windows.Forms.TextBox();
             this.pnDataGrid = new System.Windows.Forms.Panel();
             this.dgvRegistros = new System.Windows.Forms.DataGridView();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnProdutos = new System.Windows.Forms.Panel();
             this.tlpProdutos = new System.Windows.Forms.TableLayoutPanel();
+            this.btnMaximizar = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnRelatorios = new System.Windows.Forms.Button();
+            this.btnSaida = new System.Windows.Forms.Button();
+            this.btnEntradas = new System.Windows.Forms.Button();
+            this.btnProdutos = new System.Windows.Forms.Button();
+            this.btnDashBoard = new System.Windows.Forms.Button();
+            this.btnInserirCategoria = new System.Windows.Forms.Button();
+            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnProcurar = new System.Windows.Forms.Button();
+            this.btnConfig = new System.Windows.Forms.Button();
             this.tlpPrincipal.SuspendLayout();
             this.pnBarraSuperior.SuspendLayout();
             this.tlpTop.SuspendLayout();
@@ -81,7 +83,7 @@
             this.tlpPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tlpPrincipal.Name = "tlpPrincipal";
             this.tlpPrincipal.RowCount = 3;
-            this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 311F));
             this.tlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -95,7 +97,7 @@
             this.pnBarraSuperior.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBarraSuperior.Location = new System.Drawing.Point(3, 3);
             this.pnBarraSuperior.Name = "pnBarraSuperior";
-            this.pnBarraSuperior.Size = new System.Drawing.Size(887, 27);
+            this.pnBarraSuperior.Size = new System.Drawing.Size(887, 38);
             this.pnBarraSuperior.TabIndex = 0;
             // 
             // tlpTop
@@ -104,11 +106,12 @@
             this.tlpTop.ColumnCount = 7;
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.008827F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.99117F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 593F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 492F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tlpTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tlpTop.Controls.Add(this.btnMaximizar, 3, 0);
             this.tlpTop.Controls.Add(this.btnClose, 5, 0);
             this.tlpTop.Controls.Add(this.lbTitulo, 1, 0);
             this.tlpTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -116,31 +119,18 @@
             this.tlpTop.Name = "tlpTop";
             this.tlpTop.RowCount = 1;
             this.tlpTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpTop.Size = new System.Drawing.Size(887, 27);
+            this.tlpTop.Size = new System.Drawing.Size(887, 38);
             this.tlpTop.TabIndex = 0;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::EstoqueManager.Properties.Resources.close;
-            this.btnClose.Location = new System.Drawing.Point(853, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(22, 21);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.White;
             this.lbTitulo.Location = new System.Drawing.Point(5, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(209, 27);
+            this.lbTitulo.Size = new System.Drawing.Size(287, 38);
             this.lbTitulo.TabIndex = 1;
             this.lbTitulo.Text = "Gerenciamento de estoque";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,17 +138,204 @@
             // pnLatera
             // 
             this.pnLatera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(149)))), ((int)(((byte)(158)))));
+            this.pnLatera.Controls.Add(this.btnConfig);
             this.pnLatera.Controls.Add(this.btnRelatorios);
             this.pnLatera.Controls.Add(this.btnSaida);
             this.pnLatera.Controls.Add(this.btnEntradas);
             this.pnLatera.Controls.Add(this.btnProdutos);
             this.pnLatera.Controls.Add(this.btnDashBoard);
             this.pnLatera.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnLatera.Location = new System.Drawing.Point(3, 36);
+            this.pnLatera.Location = new System.Drawing.Point(3, 47);
             this.pnLatera.Name = "pnLatera";
             this.tlpPrincipal.SetRowSpan(this.pnLatera, 2);
-            this.pnLatera.Size = new System.Drawing.Size(170, 662);
+            this.pnLatera.Size = new System.Drawing.Size(170, 651);
             this.pnLatera.TabIndex = 1;
+            // 
+            // pnControles
+            // 
+            this.pnControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
+            this.tlpProdutos.SetColumnSpan(this.pnControles, 2);
+            this.pnControles.Controls.Add(this.btnInserirCategoria);
+            this.pnControles.Controls.Add(this.btnNovoProduto);
+            this.pnControles.Controls.Add(this.lbCategoria);
+            this.pnControles.Controls.Add(this.cbCategoria);
+            this.pnControles.Controls.Add(this.lbPreco);
+            this.pnControles.Controls.Add(this.txtPreco);
+            this.pnControles.Controls.Add(this.txtQuantidade);
+            this.pnControles.Controls.Add(this.lbQuantidade);
+            this.pnControles.Controls.Add(this.btnAdicionar);
+            this.pnControles.Controls.Add(this.btnProcurar);
+            this.pnControles.Controls.Add(this.txtProdutos);
+            this.pnControles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnControles.Location = new System.Drawing.Point(3, 3);
+            this.pnControles.Name = "pnControles";
+            this.pnControles.Size = new System.Drawing.Size(705, 124);
+            this.pnControles.TabIndex = 2;
+            // 
+            // btnNovoProduto
+            // 
+            this.btnNovoProduto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNovoProduto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnNovoProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnNovoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoProduto.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoProduto.Location = new System.Drawing.Point(3, 8);
+            this.btnNovoProduto.Name = "btnNovoProduto";
+            this.btnNovoProduto.Size = new System.Drawing.Size(95, 29);
+            this.btnNovoProduto.TabIndex = 11;
+            this.btnNovoProduto.Text = "Novo Produto";
+            this.btnNovoProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovoProduto.UseVisualStyleBackColor = true;
+            this.btnNovoProduto.Click += new System.EventHandler(this.btnNovoProduto_Click);
+            // 
+            // lbCategoria
+            // 
+            this.lbCategoria.AutoSize = true;
+            this.lbCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategoria.Location = new System.Drawing.Point(3, 64);
+            this.lbCategoria.Name = "lbCategoria";
+            this.lbCategoria.Size = new System.Drawing.Size(81, 21);
+            this.lbCategoria.TabIndex = 10;
+            this.lbCategoria.Text = "Categoria";
+            // 
+            // cbCategoria
+            // 
+            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Items.AddRange(new object[] {
+            "",
+            "Eletronicos"});
+            this.cbCategoria.Location = new System.Drawing.Point(107, 56);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(420, 29);
+            this.cbCategoria.TabIndex = 9;
+            // 
+            // lbPreco
+            // 
+            this.lbPreco.AutoSize = true;
+            this.lbPreco.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPreco.Location = new System.Drawing.Point(3, 93);
+            this.lbPreco.Name = "lbPreco";
+            this.lbPreco.Size = new System.Drawing.Size(79, 21);
+            this.lbPreco.TabIndex = 8;
+            this.lbPreco.Text = "Preço R$:";
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPreco.Location = new System.Drawing.Point(107, 91);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(82, 23);
+            this.txtPreco.TabIndex = 7;
+            this.txtPreco.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtQuantidade
+            // 
+            this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQuantidade.Location = new System.Drawing.Point(246, 91);
+            this.txtQuantidade.Name = "txtQuantidade";
+            this.txtQuantidade.Size = new System.Drawing.Size(47, 23);
+            this.txtQuantidade.TabIndex = 6;
+            this.txtQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lbQuantidade
+            // 
+            this.lbQuantidade.AutoSize = true;
+            this.lbQuantidade.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQuantidade.Location = new System.Drawing.Point(195, 93);
+            this.lbQuantidade.Name = "lbQuantidade";
+            this.lbQuantidade.Size = new System.Drawing.Size(45, 21);
+            this.lbQuantidade.TabIndex = 5;
+            this.lbQuantidade.Text = "Qte.:";
+            // 
+            // txtProdutos
+            // 
+            this.txtProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProdutos.Location = new System.Drawing.Point(107, 8);
+            this.txtProdutos.Name = "txtProdutos";
+            this.txtProdutos.Size = new System.Drawing.Size(420, 29);
+            this.txtProdutos.TabIndex = 0;
+            this.txtProdutos.TextChanged += new System.EventHandler(this.txtProdutos_TextChanged);
+            // 
+            // pnDataGrid
+            // 
+            this.pnDataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
+            this.tlpProdutos.SetColumnSpan(this.pnDataGrid, 2);
+            this.pnDataGrid.Controls.Add(this.dgvRegistros);
+            this.pnDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnDataGrid.Location = new System.Drawing.Point(3, 133);
+            this.pnDataGrid.Name = "pnDataGrid";
+            this.pnDataGrid.Size = new System.Drawing.Size(705, 515);
+            this.pnDataGrid.TabIndex = 3;
+            // 
+            // dgvRegistros
+            // 
+            this.dgvRegistros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(66)))), ((int)(((byte)(71)))));
+            this.dgvRegistros.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRegistros.Location = new System.Drawing.Point(0, 0);
+            this.dgvRegistros.Name = "dgvRegistros";
+            this.dgvRegistros.Size = new System.Drawing.Size(705, 515);
+            this.dgvRegistros.TabIndex = 0;
+            this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
+            this.dgvRegistros.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellEndEdit);
+            this.dgvRegistros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRegistros_KeyDown);
+            // 
+            // pnProdutos
+            // 
+            this.pnProdutos.Controls.Add(this.tlpProdutos);
+            this.pnProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnProdutos.Location = new System.Drawing.Point(179, 47);
+            this.pnProdutos.Name = "pnProdutos";
+            this.tlpPrincipal.SetRowSpan(this.pnProdutos, 2);
+            this.pnProdutos.Size = new System.Drawing.Size(711, 651);
+            this.pnProdutos.TabIndex = 4;
+            // 
+            // tlpProdutos
+            // 
+            this.tlpProdutos.ColumnCount = 2;
+            this.tlpProdutos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpProdutos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpProdutos.Controls.Add(this.pnControles, 0, 0);
+            this.tlpProdutos.Controls.Add(this.pnDataGrid, 0, 1);
+            this.tlpProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpProdutos.Location = new System.Drawing.Point(0, 0);
+            this.tlpProdutos.Name = "tlpProdutos";
+            this.tlpProdutos.RowCount = 2;
+            this.tlpProdutos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.96928F));
+            this.tlpProdutos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.03072F));
+            this.tlpProdutos.Size = new System.Drawing.Size(711, 651);
+            this.tlpProdutos.TabIndex = 4;
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximizar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximizar.Image = global::EstoqueManager.Properties.Resources.Redimensionar;
+            this.btnMaximizar.Location = new System.Drawing.Point(790, 3);
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.Size = new System.Drawing.Size(32, 32);
+            this.btnMaximizar.TabIndex = 5;
+            this.btnMaximizar.UseVisualStyleBackColor = true;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::EstoqueManager.Properties.Resources.close;
+            this.btnClose.Location = new System.Drawing.Point(836, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(32, 32);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnRelatorios
             // 
@@ -249,27 +426,6 @@
             this.btnDashBoard.UseVisualStyleBackColor = true;
             this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
             // 
-            // pnControles
-            // 
-            this.pnControles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
-            this.tlpProdutos.SetColumnSpan(this.pnControles, 2);
-            this.pnControles.Controls.Add(this.btnInserirCategoria);
-            this.pnControles.Controls.Add(this.btnNovoProduto);
-            this.pnControles.Controls.Add(this.lbCategoria);
-            this.pnControles.Controls.Add(this.cbCategoria);
-            this.pnControles.Controls.Add(this.lbPreco);
-            this.pnControles.Controls.Add(this.txtPreco);
-            this.pnControles.Controls.Add(this.txtQuantidade);
-            this.pnControles.Controls.Add(this.lbQuantidade);
-            this.pnControles.Controls.Add(this.btnAdicionar);
-            this.pnControles.Controls.Add(this.btnProcurar);
-            this.pnControles.Controls.Add(this.txtProdutos);
-            this.pnControles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnControles.Location = new System.Drawing.Point(3, 3);
-            this.pnControles.Name = "pnControles";
-            this.pnControles.Size = new System.Drawing.Size(705, 106);
-            this.pnControles.TabIndex = 2;
-            // 
             // btnInserirCategoria
             // 
             this.btnInserirCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -277,89 +433,13 @@
             this.btnInserirCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnInserirCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnInserirCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInserirCategoria.Image = global::EstoqueManager.Properties.Resources.Mais__2_;
-            this.btnInserirCategoria.Location = new System.Drawing.Point(533, 34);
+            this.btnInserirCategoria.Image = global::EstoqueManager.Properties.Resources.adicionar;
+            this.btnInserirCategoria.Location = new System.Drawing.Point(533, 52);
             this.btnInserirCategoria.Name = "btnInserirCategoria";
-            this.btnInserirCategoria.Size = new System.Drawing.Size(25, 25);
+            this.btnInserirCategoria.Size = new System.Drawing.Size(33, 33);
             this.btnInserirCategoria.TabIndex = 12;
             this.btnInserirCategoria.UseVisualStyleBackColor = true;
             this.btnInserirCategoria.Click += new System.EventHandler(this.btnInserirCategoria_Click);
-            // 
-            // btnNovoProduto
-            // 
-            this.btnNovoProduto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNovoProduto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.btnNovoProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnNovoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoProduto.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovoProduto.Location = new System.Drawing.Point(3, 3);
-            this.btnNovoProduto.Name = "btnNovoProduto";
-            this.btnNovoProduto.Size = new System.Drawing.Size(95, 25);
-            this.btnNovoProduto.TabIndex = 11;
-            this.btnNovoProduto.Text = "Novo Produto";
-            this.btnNovoProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovoProduto.UseVisualStyleBackColor = true;
-            this.btnNovoProduto.Click += new System.EventHandler(this.btnNovoProduto_Click);
-            // 
-            // lbCategoria
-            // 
-            this.lbCategoria.AutoSize = true;
-            this.lbCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategoria.Location = new System.Drawing.Point(3, 36);
-            this.lbCategoria.Name = "lbCategoria";
-            this.lbCategoria.Size = new System.Drawing.Size(81, 21);
-            this.lbCategoria.TabIndex = 10;
-            this.lbCategoria.Text = "Categoria";
-            // 
-            // cbCategoria
-            // 
-            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Items.AddRange(new object[] {
-            "",
-            "Eletronicos"});
-            this.cbCategoria.Location = new System.Drawing.Point(107, 34);
-            this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(420, 23);
-            this.cbCategoria.TabIndex = 9;
-            // 
-            // lbPreco
-            // 
-            this.lbPreco.AutoSize = true;
-            this.lbPreco.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPreco.Location = new System.Drawing.Point(3, 70);
-            this.lbPreco.Name = "lbPreco";
-            this.lbPreco.Size = new System.Drawing.Size(79, 21);
-            this.lbPreco.TabIndex = 8;
-            this.lbPreco.Text = "Preço R$:";
-            // 
-            // txtPreco
-            // 
-            this.txtPreco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPreco.Location = new System.Drawing.Point(107, 68);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(82, 23);
-            this.txtPreco.TabIndex = 7;
-            this.txtPreco.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtQuantidade
-            // 
-            this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuantidade.Location = new System.Drawing.Point(246, 68);
-            this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(47, 23);
-            this.txtQuantidade.TabIndex = 6;
-            this.txtQuantidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lbQuantidade
-            // 
-            this.lbQuantidade.AutoSize = true;
-            this.lbQuantidade.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQuantidade.Location = new System.Drawing.Point(195, 70);
-            this.lbQuantidade.Name = "lbQuantidade";
-            this.lbQuantidade.Size = new System.Drawing.Size(45, 21);
-            this.lbQuantidade.TabIndex = 5;
-            this.lbQuantidade.Text = "Qte.:";
             // 
             // btnAdicionar
             // 
@@ -371,7 +451,7 @@
             this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.Image = global::EstoqueManager.Properties.Resources.Salvar;
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAdicionar.Location = new System.Drawing.Point(610, 46);
+            this.btnAdicionar.Location = new System.Drawing.Point(618, 57);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(74, 57);
             this.btnAdicionar.TabIndex = 3;
@@ -390,70 +470,27 @@
             this.btnProcurar.Image = global::EstoqueManager.Properties.Resources.Procurar;
             this.btnProcurar.Location = new System.Drawing.Point(533, 5);
             this.btnProcurar.Name = "btnProcurar";
-            this.btnProcurar.Size = new System.Drawing.Size(25, 25);
+            this.btnProcurar.Size = new System.Drawing.Size(32, 32);
             this.btnProcurar.TabIndex = 1;
             this.btnProcurar.UseVisualStyleBackColor = true;
             this.btnProcurar.Click += new System.EventHandler(this.btnProcurar_Click);
             // 
-            // txtProdutos
+            // btnConfig
             // 
-            this.txtProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtProdutos.Location = new System.Drawing.Point(107, 5);
-            this.txtProdutos.Name = "txtProdutos";
-            this.txtProdutos.Size = new System.Drawing.Size(420, 23);
-            this.txtProdutos.TabIndex = 0;
-            this.txtProdutos.TextChanged += new System.EventHandler(this.txtProdutos_TextChanged);
-            // 
-            // pnDataGrid
-            // 
-            this.pnDataGrid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
-            this.tlpProdutos.SetColumnSpan(this.pnDataGrid, 2);
-            this.pnDataGrid.Controls.Add(this.dgvRegistros);
-            this.pnDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDataGrid.Location = new System.Drawing.Point(3, 115);
-            this.pnDataGrid.Name = "pnDataGrid";
-            this.pnDataGrid.Size = new System.Drawing.Size(705, 544);
-            this.pnDataGrid.TabIndex = 3;
-            // 
-            // dgvRegistros
-            // 
-            this.dgvRegistros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(66)))), ((int)(((byte)(71)))));
-            this.dgvRegistros.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRegistros.Location = new System.Drawing.Point(0, 0);
-            this.dgvRegistros.Name = "dgvRegistros";
-            this.dgvRegistros.Size = new System.Drawing.Size(705, 544);
-            this.dgvRegistros.TabIndex = 0;
-            this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
-            this.dgvRegistros.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellEndEdit);
-            this.dgvRegistros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRegistros_KeyDown);
-            // 
-            // pnProdutos
-            // 
-            this.pnProdutos.Controls.Add(this.tlpProdutos);
-            this.pnProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnProdutos.Location = new System.Drawing.Point(179, 36);
-            this.pnProdutos.Name = "pnProdutos";
-            this.tlpPrincipal.SetRowSpan(this.pnProdutos, 2);
-            this.pnProdutos.Size = new System.Drawing.Size(711, 662);
-            this.pnProdutos.TabIndex = 4;
-            // 
-            // tlpProdutos
-            // 
-            this.tlpProdutos.ColumnCount = 2;
-            this.tlpProdutos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpProdutos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpProdutos.Controls.Add(this.pnControles, 0, 0);
-            this.tlpProdutos.Controls.Add(this.pnDataGrid, 0, 1);
-            this.tlpProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpProdutos.Location = new System.Drawing.Point(0, 0);
-            this.tlpProdutos.Name = "tlpProdutos";
-            this.tlpProdutos.RowCount = 2;
-            this.tlpProdutos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.94657F));
-            this.tlpProdutos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.05344F));
-            this.tlpProdutos.Size = new System.Drawing.Size(711, 662);
-            this.tlpProdutos.TabIndex = 4;
+            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfig.FlatAppearance.BorderSize = 0;
+            this.btnConfig.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(171)))), ((int)(((byte)(255)))));
+            this.btnConfig.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(125)))), ((int)(((byte)(215)))));
+            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfig.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.Image = global::EstoqueManager.Properties.Resources.configuracoes;
+            this.btnConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfig.Location = new System.Drawing.Point(10, 602);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(151, 40);
+            this.btnConfig.TabIndex = 5;
+            this.btnConfig.Text = "Config.";
+            this.btnConfig.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -512,6 +549,8 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Panel pnProdutos;
         private System.Windows.Forms.TableLayoutPanel tlpProdutos;
+        private System.Windows.Forms.Button btnMaximizar;
+        private System.Windows.Forms.Button btnConfig;
     }
 }
 

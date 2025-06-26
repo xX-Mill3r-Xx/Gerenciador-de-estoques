@@ -109,7 +109,7 @@ namespace EstoqueManager.Configuracoes
                 var produto = linha.DataBoundItem as Produto;
                 if (produto != null && produtosBloqueados.Contains(produto.Id))
                 {
-                    linha.Cells["Excluir"].Value = Properties.Resources.Bloqueado;
+                    linha.Cells["Excluir"].Value = Properties.Resources._lock;
                     linha.Cells["Excluir"].ToolTipText = "Produto bloqueado para exclusão";
                 }
                 else
