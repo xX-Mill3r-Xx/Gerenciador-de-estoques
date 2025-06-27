@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36203.30 d17.14
+VisualStudioVersion = 17.14.36203.30
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueManager", "EstoqueManager\EstoqueManager.csproj", "{0C540497-388F-4C76-8152-18B454B1BF64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstoqueManagerEFCore", "EstoqueManagerEFCore\EstoqueManagerEFCore.csproj", "{3A69413F-38AD-4946-BE97-08F1621EF0BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0C540497-388F-4C76-8152-18B454B1BF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C540497-388F-4C76-8152-18B454B1BF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C540497-388F-4C76-8152-18B454B1BF64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A69413F-38AD-4946-BE97-08F1621EF0BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A69413F-38AD-4946-BE97-08F1621EF0BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A69413F-38AD-4946-BE97-08F1621EF0BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A69413F-38AD-4946-BE97-08F1621EF0BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
