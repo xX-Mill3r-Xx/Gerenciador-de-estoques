@@ -1,6 +1,9 @@
-﻿namespace EstoqueManagerEFCore.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EstoqueManagerEFCore.Models
 {
-    public class Categorias
+    [Table("Categorias")]
+    public class Categoria
     {
         public int Id { get; set; }
         public string? Nome { get; set; }
