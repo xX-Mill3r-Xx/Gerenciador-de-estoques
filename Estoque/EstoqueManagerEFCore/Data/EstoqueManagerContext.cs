@@ -8,6 +8,7 @@ namespace EstoqueManagerEFCore.Data
     {
         public DbSet<ConfiguracaoBD> ConfiguracaoBDs {  get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Categorias> Categorias { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
